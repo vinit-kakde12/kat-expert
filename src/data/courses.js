@@ -36,7 +36,7 @@ const cat = {
   code: "CAT",
   name: "Common Admission Test",
   tagline: "Your gateway to the IIMs and top B-schools of India.",
-  heroImage: "https://katexperts.com/wp-content/uploads/2025/04/GET-THE-BEST-OF-CAT-2021-ONLINE-COACHING.jpg",
+  heroImage: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop",
   logo: "https://katexperts.com/wp-content/uploads/2026/02/CAT.png",
   description:
     "The Common Admission Test (CAT) is a national-level entrance examination conducted annually for admission into postgraduate management programs. It is primarily used for entry into the prestigious Indian Institutes of Management (IIMs) and several other top business schools across India.",
@@ -154,7 +154,7 @@ const clat = {
   code: "CLAT",
   name: "Common Law Admission Test",
   tagline: "Classroom-centric, mentor-driven CLAT preparation for admission to the top NLUs.",
-  heroImage: "https://katexperts.com/wp-content/uploads/2026/01/Whisk_114bc7b5aeb7192874b436b6a19580e2dr-1-1024x559.jpeg",
+  heroImage: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=800&auto=format&fit=crop",
   logo: "https://katexperts.com/wp-content/uploads/2026/02/CLAT.png",
   description:
     "KATexpert's CLAT Offline Coaching Program is designed to help aspirants crack the Common Law Admission Test through expert-led classroom teaching, personalized study plans and individual mentoring. Targeted strategy sessions, concept-focused learning and proctored full-length mock tests in real exam-like conditions build the accuracy, speed and confidence required to secure admission to the top National Law Universities (NLUs).",
@@ -262,7 +262,7 @@ const ipmat = {
   code: "IPMAT",
   name: "Integrated Program in Management Aptitude Test",
   tagline: "Fully offline, mentor-driven IPMAT preparation with structured modules and updated printed courseware.",
-  heroImage: "https://katexperts.com/wp-content/uploads/2026/02/IPMAT.png",
+  heroImage: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=800&auto=format&fit=crop",
   logo: "https://katexperts.com/wp-content/uploads/2026/02/IPMAT.png",
   description:
     "The KATexpert IPMAT program is delivered fully offline through structured learning modules combining classroom concept teaching, guided problem-solving, in-class practice, short chapter tests and combined module tests — ensuring discipline, conceptual clarity and steady progress.",
@@ -418,7 +418,7 @@ const mbaCet = {
   code: "MBA CET",
   name: "Maharashtra MBA Common Entrance Test",
   tagline: "All-inclusive MBA CET preparation targeting JBIMS, SIMSREE, PUMBA, Welingkar and Maharashtra's top B-schools.",
-  heroImage: "https://katexperts.com/wp-content/uploads/2026/02/MBA-CET.png",
+  heroImage: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=800&auto=format&fit=crop",
   logo: "https://katexperts.com/wp-content/uploads/2026/02/MBA-CET.png",
   description:
     "Prepare for Maharashtra's top B-schools with our all-inclusive MBA CET Test Series designed for serious aspirants targeting JBIMS, SIMSREE, PUMBA, Welingkar and other leading institutes.",
@@ -499,7 +499,7 @@ const mcaCet = {
   code: "MCA CET",
   name: "Maharashtra MCA Common Entrance Test",
   tagline: "A comprehensive MCA CET test series for aspirants targeting top MCA colleges across Maharashtra.",
-  heroImage: "https://katexperts.com/wp-content/uploads/2026/02/MCA-CET.png",
+  heroImage: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=800&auto=format&fit=crop",
   logo: "https://katexperts.com/wp-content/uploads/2026/02/MCA-CET.png",
   description:
     "Prepare smarter with our comprehensive MCA CET Test Series, featuring 25 full-length mock tests and 100+ topic-wise practice tests — the perfect toolkit for aspirants aiming for the top MCA colleges across Maharashtra.",
@@ -577,7 +577,7 @@ const crt = {
   code: "CRT",
   name: "Campus Recruitment Training",
   tagline: "A specialised program to prepare you for placement drives — from written tests to HR interviews.",
-  heroImage: "https://katexperts.com/wp-content/uploads/2026/02/CRT.png",
+  heroImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop",
   logo: "https://katexperts.com/wp-content/uploads/2026/02/CRT.png",
   description:
     "Campus Recruitment Training (CRT) is a specialized program designed to prepare students for placement drives conducted by companies during campus recruitment. The goal is to equip students with the necessary skills to confidently crack written tests, group discussions, technical interviews and HR rounds.",

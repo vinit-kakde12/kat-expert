@@ -95,7 +95,9 @@ export default function CoursesPage() {
                   )}
 
                   <div className="flex items-center gap-3">
-                    <img src={course.logo} alt="" className="h-14 w-14 rounded-xl object-contain bg-[#ea580c]/10 p-2" />
+                    <div className="h-14 w-14 rounded-xl bg-[#ea580c]/10 text-[#ea580c] flex items-center justify-center font-bold font-display text-base select-none shrink-0">
+                      {course.code}
+                    </div>
                     <div>
                       <h3 className="font-display text-xl font-bold text-navy">{course.code}</h3>
                       <p className="text-xs text-muted-foreground">{course.name}</p>
