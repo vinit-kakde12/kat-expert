@@ -107,13 +107,24 @@ function DesktopDropdown({ item, scrolled }) {
                   </AnimatePresence>
                 </div>
               ) : (
-                <a
-                  key={child.href}
-                  href={child.href}
-                  className="block border-t border-border/60 px-4 py-2.5 text-sm font-medium text-foreground transition-colors first:border-t-0 hover:bg-accent hover:text-white"
-                >
-                  {child.label}
-                </a>
+                child.href.startsWith("http") || child.href.startsWith("/#") ? (
+                  <a
+                    key={child.href}
+                    href={child.href}
+                    className="block border-t border-border/60 px-4 py-2.5 text-sm font-medium text-foreground transition-colors first:border-t-0 hover:bg-accent hover:text-white"
+                  >
+                    {child.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={child.href}
+                    to={child.href}
+                    onClick={() => setOpen(false)}
+                    className="block border-t border-border/60 px-4 py-2.5 text-sm font-medium text-foreground transition-colors first:border-t-0 hover:bg-accent hover:text-white"
+                  >
+                    {child.label}
+                  </Link>
+                )
               )
             )}
           </motion.div>
@@ -189,6 +200,77 @@ function CoursesDropdown({ scrolled }) {
   );
 }
 
+function GalleryDropdown({ scrolled }) {
+  const [open, setOpen] = useState(false);
+  const location = useLocation();
+
+  const isGalleryActive = ["/visual-gallery", "/video-testimonials", "/news-events"].includes(location.pathname);
+
+  const triggerClass = `inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-all cursor-pointer ${
+    open || isGalleryActive
+      ? "bg-[#ea580c] text-white shadow-soft"
+      : scrolled
+      ? "text-foreground/80 hover:bg-secondary hover:text-foreground"
+      : "text-white/85 hover:bg-white/10 hover:text-white"
+  }`;
+
+  return (
+    <div
+      className="relative"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+    >
+      <button
+        type="button"
+        aria-haspopup="menu"
+        aria-expanded={open}
+        className={triggerClass}
+      >
+        Gallery
+        <ChevronDown className={`h-3.5 w-3.5 transition-transform ${open ? "rotate-180" : ""}`} />
+      </button>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 6 }}
+            transition={{ duration: 0.15 }}
+            className="absolute left-0 top-full z-50 pt-2"
+          >
+            <div className="w-[190px] rounded-xl border border-border bg-white py-1 shadow-card text-left flex flex-col overflow-hidden">
+              <Link
+                to="/visual-gallery"
+                onClick={() => setOpen(false)}
+                className="block px-4 py-2.5 text-sm font-semibold text-navy hover:bg-[#ea580c]/5 hover:text-[#ea580c] transition-colors"
+              >
+                Visual Gallery
+              </Link>
+              <div className="border-t border-border/60 w-full" />
+              <Link
+                to="/video-testimonials"
+                onClick={() => setOpen(false)}
+                className="block px-4 py-2.5 text-sm font-semibold text-navy hover:bg-[#ea580c]/5 hover:text-[#ea580c] transition-colors"
+              >
+                Video Testimonials
+              </Link>
+              <div className="border-t border-border/60 w-full" />
+              <Link
+                to="/news-events"
+                onClick={() => setOpen(false)}
+                className="block px-4 py-2.5 text-sm font-semibold text-navy hover:bg-[#ea580c]/5 hover:text-[#ea580c] transition-colors"
+              >
+                News & Events
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
 function MobileNavItem({ item, onNavigate }) {
   const [expanded, setExpanded] = useState(false);
   const [pyqsExpanded, setPyqsExpanded] = useState(false);
@@ -222,6 +304,44 @@ function MobileNavItem({ item, onNavigate }) {
                   >
                     <span className="font-semibold text-[#ea580c] mr-2">{c.code}</span>
                     <span className="text-muted-foreground">— {c.name}</span>
+                  </Link>
+                </li>
+              ))}
+            </motion.ul>
+          )}
+        </AnimatePresence>
+      </li>
+    );
+  }
+
+  if (item.label === "Gallery") {
+    return (
+      <li>
+        <button
+          type="button"
+          onClick={() => setExpanded((v) => !v)}
+          className="flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-sm font-medium text-foreground/80 hover:bg-secondary"
+        >
+          {item.label}
+          <ChevronDown className={`h-4 w-4 transition-transform ${expanded ? "rotate-180" : ""}`} />
+        </button>
+
+        <AnimatePresence>
+          {expanded && (
+            <motion.ul
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="overflow-hidden pl-3"
+            >
+              {item.children.map((c) => (
+                <li key={c.href}>
+                  <Link
+                    to={c.href}
+                    onClick={onNavigate}
+                    className="block rounded-lg px-3 py-2 text-sm text-foreground/70 hover:bg-secondary"
+                  >
+                    {c.label}
                   </Link>
                 </li>
               ))}
@@ -305,13 +425,23 @@ function MobileNavItem({ item, onNavigate }) {
                 </li>
               ) : (
                 <li key={child.href}>
-                  <a
-                    href={child.href}
-                    onClick={onNavigate}
-                    className="block rounded-lg px-3 py-2 text-sm text-foreground/70 hover:bg-secondary"
-                  >
-                    {child.label}
-                  </a>
+                  {child.href.startsWith("http") || child.href.startsWith("/#") ? (
+                    <a
+                      href={child.href}
+                      onClick={onNavigate}
+                      className="block rounded-lg px-3 py-2 text-sm text-foreground/70 hover:bg-secondary"
+                    >
+                      {child.label}
+                    </a>
+                  ) : (
+                    <Link
+                      to={child.href}
+                      onClick={onNavigate}
+                      className="block rounded-lg px-3 py-2 text-sm text-foreground/70 hover:bg-secondary"
+                    >
+                      {child.label}
+                    </Link>
+                  )}
                 </li>
               )
             )}
@@ -396,6 +526,8 @@ function Navbar() {
               <li key={l.label}>
                 {l.label === "Courses" ? (
                   <CoursesDropdown scrolled={scrolled} />
+                ) : l.label === "Gallery" ? (
+                  <GalleryDropdown scrolled={scrolled} />
                 ) : l.children ? (
                   <DesktopDropdown item={l} scrolled={scrolled} />
                 ) : (

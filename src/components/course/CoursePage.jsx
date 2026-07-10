@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { galleryPool, testimonials } from "@/data/courses";
 
 /* ------------------------------------------------------------------ */
 /* Small local helpers                                                 */
@@ -62,14 +61,14 @@ function SectionHeading({
         </span>
       )}
       <h2
-        className={`mt-4 text-3xl sm:text-4xl md:text-5xl font-bold text-balance ${
+        className={`mt-4 text-3xl sm:text-4xl font-extrabold text-balance ${
           invert ? "text-white" : "text-navy"
         }`}
       >
         {title}
       </h2>
       {sub && (
-        <p className={`mt-4 text-base sm:text-lg text-pretty ${invert ? "text-white/75" : "text-muted-foreground"}`}>{sub}</p>
+        <p className={`mt-4 text-base text-pretty ${invert ? "text-white/75" : "text-muted-foreground"}`}>{sub}</p>
       )}
     </div>
   );
@@ -87,10 +86,10 @@ function Hero({ c }) {
           <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[#ea580c]">
             <span className="h-1.5 w-1.5 rounded-full bg-[#ea580c]" /> {c.code} Program
           </span>
-          <h1 className="mt-5 text-4xl sm:text-5xl md:text-6xl font-bold text-balance leading-[1.05]">
+          <h1 className="mt-5 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-balance leading-[1.1]">
             {c.name}
           </h1>
-          <p className="mt-5 text-lg text-white/80 text-pretty max-w-xl">{c.tagline}</p>
+          <p className="mt-5 text-sm sm:text-base leading-relaxed text-white/80 text-pretty max-w-xl">{c.tagline}</p>
 
           <ul className="mt-8 grid gap-2 sm:grid-cols-2 max-w-xl">
             {c.highlights.map((h) => (
@@ -115,15 +114,15 @@ function Hero({ c }) {
         <div className="relative">
           <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-[#ea580c]/40 via-[#ea580c]/10 to-transparent blur-2xl" aria-hidden />
           <div className="relative rounded-3xl border border-white/15 bg-white/5 backdrop-blur-sm p-3 shadow-soft">
-            <img
-              src={c.heroImage}
-              alt={`${c.code} — ${c.name}`}
-              className="w-full aspect-[4/3] rounded-2xl object-cover"
-              loading="eager"
-            />
+            <div className="w-full aspect-[4/3] rounded-2xl bg-gradient-to-br from-[#ea580c] to-[#0a2e5c] flex items-center justify-center p-6 text-center text-white">
+              <div>
+                <p className="font-display font-bold text-4xl md:text-5xl uppercase tracking-wider">{c.code}</p>
+                <p className="mt-2 text-xs uppercase tracking-widest opacity-80">KATexpert Flagship Program</p>
+              </div>
+            </div>
             <div className="absolute -bottom-6 -left-6 rounded-2xl bg-white text-navy shadow-soft px-5 py-4 hidden sm:block">
               <p className="text-xs uppercase tracking-widest text-[#ea580c] font-semibold">Since 2015</p>
-              <p className="font-display font-bold text-lg leading-tight">Trusted by 5,000+<br/>students</p>
+              <p className="font-display font-bold text-base leading-tight">Trusted by 5,000+<br/>students</p>
             </div>
           </div>
         </div>
@@ -161,7 +160,7 @@ function About({ c }) {
         <div className="lg:sticky lg:top-24">
           <SectionHeading eyebrow="About the Course" title={`Why ${c.code} at KATexpert?`} />
         </div>
-        <div className="prose max-w-none text-lg text-navy-soft leading-relaxed">
+        <div className="prose max-w-none text-sm sm:text-base text-navy-soft leading-relaxed">
           <p>{c.description}</p>
         </div>
       </div>
@@ -368,71 +367,6 @@ function Results({ c }) {
   );
 }
 
-function TestimonialsSection() {
-  const [idx, setIdx] = useState(0);
-  const perView = 1;
-  const max = testimonials.length - perView;
-  const go = (dir) => setIdx((v) => Math.max(0, Math.min(max, v + dir)));
-
-  return (
-    <section className="section-y bg-cream-mesh">
-      <div className="container-x">
-        <SectionHeading eyebrow="Student Voices" title="What our students say" align="center" />
-        <div className="mt-10 relative max-w-3xl mx-auto">
-          <div className="overflow-hidden">
-            <div className="flex transition-transform duration-500 ease-out" style={{ transform: `translateX(-${idx * 100}%)` }}>
-              {testimonials.map((t) => (
-                <div key={t.name} className="w-full shrink-0 px-1">
-                  <figure className="card-premium p-8 sm:p-10 text-center">
-                    <div className="flex justify-center">
-                      <img src={t.image} alt={t.name} className="h-20 w-20 rounded-full object-cover ring-4 ring-[#ea580c]/10" loading="lazy" />
-                    </div>
-                    <div className="mt-4 flex justify-center gap-0.5 text-[#ea580c]">
-                      {"★★★★★".split("").map((s, i) => <span key={i}>{s}</span>)}
-                    </div>
-                    <blockquote className="mt-5 text-lg text-navy-soft leading-relaxed">"{t.quote}"</blockquote>
-                    <figcaption className="mt-5 font-display font-bold text-navy">{t.name}</figcaption>
-                  </figure>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="mt-6 flex items-center justify-center gap-3">
-            <button type="button" onClick={() => go(-1)} disabled={idx === 0} className="grid h-11 w-11 place-items-center rounded-full border border-border bg-white text-navy hover:border-[#ea580c] disabled:opacity-40" aria-label="Previous testimonial">
-              <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M12.79 4.79a.75.75 0 010 1.06L8.62 10l4.17 4.15a.75.75 0 11-1.06 1.06l-4.7-4.68a.75.75 0 010-1.06l4.7-4.68a.75.75 0 011.06 0z" clipRule="evenodd"/></svg>
-            </button>
-            <div className="flex gap-1.5">
-              {testimonials.map((_, i) => (
-                <button key={i} onClick={() => setIdx(i)} className={`h-2 rounded-full transition-all ${i === idx ? "w-6 bg-[#ea580c]" : "w-2 bg-navy/20 hover:bg-navy/40"}`} aria-label={`Go to slide ${i + 1}`} />
-              ))}
-            </div>
-            <button type="button" onClick={() => go(1)} disabled={idx >= max} className="grid h-11 w-11 place-items-center rounded-full border border-border bg-white text-navy hover:border-[#ea580c] disabled:opacity-40" aria-label="Next testimonial">
-              <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M7.21 4.79a.75.75 0 011.06 0l4.7 4.68a.75.75 0 010 1.06l-4.7 4.68a.75.75 0 11-1.06-1.06L11.38 10 7.21 5.85a.75.75 0 010-1.06z" clipRule="evenodd"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Gallery() {
-  const imgs = galleryPool;
-  return (
-    <section className="section-y">
-      <div className="container-x">
-        <SectionHeading eyebrow="Life at KATexpert" title="Moments from our classrooms and events" />
-        <div className="mt-10 grid gap-3 grid-cols-2 md:grid-cols-4">
-          {imgs.map((src, i) => (
-            <div key={src} className={`group relative overflow-hidden rounded-2xl bg-muted ${i % 5 === 0 ? "row-span-2 aspect-[3/4]" : "aspect-square"}`}>
-              <img src={src} alt="KATexpert classroom" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function FAQs({ c }) {
   const [open, setOpen] = useState(0);
@@ -476,8 +410,8 @@ function CTA({ c }) {
               <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[#ea580c]">
                 Start today
               </span>
-              <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-display font-bold text-balance">{c.cta.heading}</h2>
-              {c.cta.sub && <p className="mt-4 text-white/80 text-lg text-pretty">{c.cta.sub}</p>}
+              <h2 className="mt-4 text-3xl sm:text-4xl font-display font-extrabold text-balance">{c.cta.heading}</h2>
+              {c.cta.sub && <p className="mt-4 text-white/80 text-sm sm:text-base text-pretty">{c.cta.sub}</p>}
               <div className="mt-8 flex flex-wrap gap-3">
                 <a href="tel:+919552388015" className="btn-primary">Call Now</a>
                 <a href="https://api.whatsapp.com/send/?phone=919552388015" target="_blank" rel="noreferrer" className="btn-outline-light">WhatsApp</a>
@@ -530,8 +464,6 @@ export function CoursePage({ course }) {
       <Resources c={course} />
       <ExtraSections c={course} />
       <Results c={course} />
-      <TestimonialsSection />
-      <Gallery />
       <FAQs c={course} />
       <CTA c={course} />
       <StickyMobileCTA c={course} />

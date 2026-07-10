@@ -77,10 +77,18 @@ const NAV_LINKS = [
           { label: "CAT", href: "/resources/cat" }
         ]
       },
-      { label: "GD/PI", href: "/#contact" },
-      { label: "Blogs", href: "/#contact" },
-      { label: "Articles", href: "/#contact" },
+      { label: "GD/PI", href: "/resources/gd-pi" },
+      { label: "Blogs", href: "/blog" },
+      { label: "Articles", href: "/blog" },
       { label: "Others", href: "/#contact" }
+    ]
+  },
+  {
+    label: "Gallery",
+    children: [
+      { label: "Visual Gallery", href: "/visual-gallery" },
+      { label: "Video Testimonials", href: "/video-testimonials" },
+      { label: "News & Events", href: "/news-events" }
     ]
   },
   { label: "Contact", href: "/#contact" }

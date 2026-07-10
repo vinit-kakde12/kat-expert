@@ -26,12 +26,22 @@ function PdfViewerCard({ title, subtitle, pdfUrl }) {
     <div className="overflow-hidden rounded-lg bg-[#3a3a3a] shadow-card">
       <div className="relative aspect-[3/4] w-full">
         {viewing && pdfUrl ? (
-          <iframe
-            src={`${pdfUrl}#toolbar=0&navpanes=0`}
-            title={`${title} ${subtitle}`}
-            className="absolute inset-0 h-full w-full border-0 bg-white"
-            style={{ transform: `scale(${zoom / 100})`, transformOrigin: "top center" }}
-          />
+          <>
+            <iframe
+              src={`${pdfUrl}#toolbar=0&navpanes=0`}
+              title={`${title} ${subtitle}`}
+              className="absolute inset-0 h-full w-full border-0 bg-white"
+              style={{ transform: `scale(${zoom / 100})`, transformOrigin: "top center" }}
+            />
+            <button
+              type="button"
+              onClick={toggleView}
+              className="absolute right-2 top-2 z-20 rounded-full bg-black/60 p-1.5 text-white backdrop-blur transition-colors hover:bg-black/80 cursor-pointer"
+              aria-label="Close Preview"
+            >
+              ✕
+            </button>
+          </>
         ) : (
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#2d2d2d] p-6">
             <div className="flex w-full max-w-[180px] flex-col items-center rounded-sm bg-white px-4 py-6 shadow-lg">
@@ -44,7 +54,13 @@ function PdfViewerCard({ title, subtitle, pdfUrl }) {
               <p className="mt-1 text-center text-[11px] font-semibold uppercase tracking-wide text-accent">
                 {subtitle}
               </p>
-              <FileText className="mt-4 h-8 w-8 text-navy/30" />
+              <button
+                type="button"
+                onClick={toggleView}
+                className="mt-4 inline-flex items-center gap-1.5 bg-[#ea580c] hover:bg-[#d94e06] text-white text-[10px] font-bold uppercase tracking-wider px-3.5 py-2 rounded-lg transition-colors cursor-pointer"
+              >
+                <FileText className="h-3.5 w-3.5" /> Preview PDF
+              </button>
             </div>
           </div>
         )}

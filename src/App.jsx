@@ -13,6 +13,10 @@ import MbaCetPage from "@/pages/MbaCetPage";
 import McaCetPage from "@/pages/McaCetPage";
 import CurriculumPage from "@/pages/CurriculumPage";
 import PremiumCoursePage from "@/pages/PremiumCoursePage";
+import VisualGalleryPage from "@/pages/VisualGalleryPage";
+import VideoTestimonialsPage from "@/pages/VideoTestimonialsPage";
+import NewsEventsPage from "@/pages/NewsEventsPage";
+import GdpiPage from "@/pages/GdpiPage";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -37,11 +41,15 @@ export default function App() {
           <Route path="ipmat" element={<IpmatResourcesPage />} />
           <Route path="resources/cat" element={<CatResourcesPage />} />
           <Route path="resources/ipmat" element={<IpmatResourcesPage />} />
+          <Route path="resources/gd-pi" element={<GdpiPage />} />
           <Route path="pyqs" element={<PyqsPage />} />
           <Route path="blog" element={<BlogPage />} />
           <Route path="mba-cet" element={<MbaCetPage />} />
           <Route path="mca-cet" element={<McaCetPage />} />
           <Route path="curriculum" element={<CurriculumPage />} />
+          <Route path="visual-gallery" element={<VisualGalleryPage />} />
+          <Route path="video-testimonials" element={<VideoTestimonialsPage />} />
+          <Route path="news-events" element={<NewsEventsPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
