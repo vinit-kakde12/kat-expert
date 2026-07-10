@@ -12,6 +12,7 @@ import BlogPage from "@/pages/BlogPage";
 import MbaCetPage from "@/pages/MbaCetPage";
 import McaCetPage from "@/pages/McaCetPage";
 import CurriculumPage from "@/pages/CurriculumPage";
+import PremiumCoursePage from "@/pages/PremiumCoursePage";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -30,6 +31,7 @@ export default function App() {
           <Route index element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="courses" element={<CoursesPage />} />
+          <Route path="courses/:slug" element={<PremiumCoursePage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="cat" element={<CatResourcesPage />} />
           <Route path="ipmat" element={<IpmatResourcesPage />} />

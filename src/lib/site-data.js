@@ -43,7 +43,13 @@ import p35 from "@/assets/rudra.png";
 import p36 from "@/assets/saniya-son.png";
 import p37 from "@/assets/vidhi.png";
 
-
+import p38 from "@/assets/aniruddha.jpeg";
+import p39 from "@/assets/arnav-mahatme.jpeg";
+import p40 from "@/assets/gauravi.jpeg";
+import p41 from "@/assets/geetika.jpeg";
+import p42 from "@/assets/priyanka-v.jpeg";
+import p43 from "@/assets/arnav-raut.jpeg";
+import p44 from "@/assets/deeksha-lanjewar.jpeg";
 
 const BRAND = {
   name: "KAT Expert",
@@ -310,10 +316,15 @@ const TOPPERS = [
   { image: p21, name: "Meet Patel", exam: "CAT", score: "87.97%ile", college: "IIM Ahmedabad", year: 2025 },
   { image: p20, name: "Hiten Khatod", exam: "CAT", score: "89.90%ile", college: "IIM Bangalore", year: 2025 },
   { image: p31, name: "Naman Agrawal", exam: "DILR", score: "98.81%ile", college: "NLSIU Bangalore", year: 2025 },
-  { image: null, name: "Aniket Sharma", exam: "CAT", score: "99.87%ile", college: "IIM Ahmedabad Call", year: 2025 },
-  { image: null, name: "Riya Deshpande", exam: "CLAT", score: "AIR 82", college: "NLSIU Bangalore Admit", year: 2025 },
-  { image: null, name: "Siddharth Nair", exam: "IPMAT", score: "Convert", college: "IIM Indore IPM", year: 2025 },
-  { image: null, name: "Pooja Kulkarni", exam: "MBA CET", score: "99.93%ile", college: "JBIMS Mumbai", year: 2024 }
+  { image: p38, name: "Anirudhha Bhuptani", exam: "BBA CET", score: "98.04%ile", college: "NLSIU Bangalore", year: 2025 },
+  { image: p39, name: "Arnav Mahatme", exam: "BBA CET", score: "95.62%ile", college: "NLSIU Bangalore", year: 2025 },
+  { image: p40, name: "Geetika Mundhada", exam: "BBA CET", score: "95.46%ile", college: "NLSIU Bangalore", year: 2025 },
+  { image: p41, name: "Gauravi Chitrav", exam: "BBA CET", score: "90.72%ile", college: "NLSIU Bangalore", year: 2025 },
+  { image: p42, name: "Priyanka Vithalani", exam: "BBA CET", score: "88.31%ile", college: "NLSIU Bangalore", year: 2025 },
+  { image: p43, name: "Arnav Raut", exam: "BBA CET", college: "Christ University Bangalore", year: 2025 },
+  { image: p44, name: "Deeksha Lanjewar", exam: "BBA CET", college: "NICMAR-Pune", year: 2025 },
+  
+  
 ];
 
 const TESTIMONIALS = [

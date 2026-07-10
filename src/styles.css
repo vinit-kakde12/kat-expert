@@ -172,3 +172,54 @@
   width: 5rem;
   background-color: #ea580c;
 }
+
+/* Premium utility classes */
+@utility bg-hero-radial {
+  background:
+    radial-gradient(1200px 600px at 85% -10%, color-mix(in oklab, var(--color-accent) 32%, transparent), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, color-mix(in oklab, var(--color-accent) 18%, transparent), transparent 55%),
+    linear-gradient(180deg, var(--color-navy), #0f172a);
+}
+@utility bg-cream-mesh {
+  background:
+    radial-gradient(600px 300px at 90% 0%, color-mix(in oklab, var(--color-accent) 12%, transparent), transparent 60%),
+    #faf9f6;
+}
+@utility btn-primary {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  padding: 0.75rem 1.5rem; border-radius: 9999px;
+  background: linear-gradient(135deg, var(--color-accent), color-mix(in oklab, var(--color-accent) 80%, black));
+  color: white; font-weight: 600;
+  box-shadow: 0 12px 40px -12px color-mix(in oklab, var(--color-accent) 55%, transparent);
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+  &:hover { transform: translateY(-1px); filter: brightness(1.05); }
+}
+@utility btn-outline-light {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  padding: 0.75rem 1.5rem; border-radius: 9999px;
+  background: transparent; color: white; border: 1.5px solid rgb(255 255 255 / 40%);
+  font-weight: 600; transition: all .2s ease;
+  &:hover { background: rgb(255 255 255 / 10%); border-color: rgb(255 255 255 / 70%); }
+}
+@utility btn-outline-navy {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  padding: 0.75rem 1.5rem; border-radius: 9999px;
+  background: transparent; color: var(--color-navy); border: 1.5px solid var(--color-navy);
+  font-weight: 600; transition: all .2s ease;
+  &:hover { background: var(--color-navy); color: white; }
+}
+@utility card-premium {
+  background: white; border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-soft);
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  &:hover { transform: translateY(-4px); box-shadow: var(--shadow-card); border-color: color-mix(in oklab, var(--color-accent) 40%, var(--color-border)); }
+}
+@utility section-y {
+  padding-block: clamp(3.5rem, 8vw, 6rem);
+}
+@utility reveal {
+  opacity: 0; transform: translateY(16px);
+  animation: reveal-in .7s ease forwards;
+}
+@keyframes reveal-in { to { opacity: 1; transform: none; } }

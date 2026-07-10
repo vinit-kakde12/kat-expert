@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { Logo } from "./logo";
 import { NAV_LINKS, BRAND } from "@/lib/site-data";
 import { Button } from "@/components/ui/button";
+import { courses } from "@/data/courses";
 
 function NavLink({ link, scrolled, onNavigate }) {
   const isHash = link.href?.startsWith("/#");
@@ -122,9 +123,114 @@ function DesktopDropdown({ item, scrolled }) {
   );
 }
 
+function CoursesDropdown({ scrolled }) {
+  const [open, setOpen] = useState(false);
+  const location = useLocation();
+
+  const triggerClass = `inline-flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-medium transition-colors ${
+    scrolled
+      ? "text-foreground/80 hover:bg-secondary hover:text-foreground"
+      : "text-white/85 hover:bg-white/10 hover:text-white"
+  }`;
+
+  return (
+    <div
+      className="relative"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+    >
+      <button
+        type="button"
+        aria-haspopup="menu"
+        aria-expanded={open}
+        className={triggerClass}
+      >
+        Courses
+        <ChevronDown className={`h-3.5 w-3.5 transition-transform ${open ? "rotate-180" : ""}`} />
+      </button>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 6 }}
+            transition={{ duration: 0.15 }}
+            className="absolute left-1/2 top-full -translate-x-1/2 z-50 pt-2"
+          >
+            <div className="w-[500px] rounded-2xl border border-border bg-white p-3 shadow-card grid grid-cols-2 gap-1 text-left">
+              {courses.map((c) => {
+                const active = location.pathname === `/courses/${c.slug}`;
+                return (
+                  <Link
+                    key={c.slug}
+                    to={`/courses/${c.slug}`}
+                    role="menuitem"
+                    onClick={() => setOpen(false)}
+                    className={`flex items-start gap-3 rounded-xl px-3 py-3 transition-colors ${
+                      active ? "bg-[#ea580c]/10" : "hover:bg-slate-50"
+                    }`}
+                  >
+                    <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-navy text-white font-bold text-xs select-none">
+                      {c.code.split(" ")[0]}
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block text-sm font-semibold text-navy leading-normal">{c.code}</span>
+                      <span className="block text-[11px] text-muted-foreground truncate leading-normal">{c.name}</span>
+                    </span>
+                  </Link>
+                );
+              })}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
 function MobileNavItem({ item, onNavigate }) {
   const [expanded, setExpanded] = useState(false);
   const [pyqsExpanded, setPyqsExpanded] = useState(false);
+
+  if (item.label === "Courses") {
+    return (
+      <li>
+        <button
+          type="button"
+          onClick={() => setExpanded((v) => !v)}
+          className="flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-sm font-medium text-foreground/80 hover:bg-secondary"
+        >
+          {item.label}
+          <ChevronDown className={`h-4 w-4 transition-transform ${expanded ? "rotate-180" : ""}`} />
+        </button>
+
+        <AnimatePresence>
+          {expanded && (
+            <motion.ul
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="overflow-hidden pl-3"
+            >
+              {courses.map((c) => (
+                <li key={c.slug}>
+                  <Link
+                    to={`/courses/${c.slug}`}
+                    onClick={onNavigate}
+                    className="block rounded-lg px-3 py-2 text-sm text-foreground/70 hover:bg-secondary"
+                  >
+                    <span className="font-semibold text-[#ea580c] mr-2">{c.code}</span>
+                    <span className="text-muted-foreground">— {c.name}</span>
+                  </Link>
+                </li>
+              ))}
+            </motion.ul>
+          )}
+        </AnimatePresence>
+      </li>
+    );
+  }
 
   if (!item.children) {
     const isHash = item.href?.startsWith("/#");
@@ -288,7 +394,9 @@ function Navbar() {
           <ul className="hidden items-center gap-1 lg:flex">
             {NAV_LINKS.map((l) => (
               <li key={l.label}>
-                {l.children ? (
+                {l.label === "Courses" ? (
+                  <CoursesDropdown scrolled={scrolled} />
+                ) : l.children ? (
                   <DesktopDropdown item={l} scrolled={scrolled} />
                 ) : (
                   <NavLink link={l} scrolled={scrolled} />
