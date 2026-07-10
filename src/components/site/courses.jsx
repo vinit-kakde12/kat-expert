@@ -124,7 +124,7 @@ export function Courses() {
                 >
                   <Link
                     to={`/courses/${course.slug}`}
-                    className="group card-premium p-6 flex flex-col h-full relative overflow-hidden bg-white border border-slate-150 hover:border-orange/20 hover:shadow-lg transition-all duration-300 rounded-3xl"
+                    className="group card-premium p-6 flex flex-col h-full relative overflow-hidden bg-white border border-slate-150 hover:border-orange/20 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 rounded-3xl"
                   >
                     {/* Featured Badge */}
                     {isFeatured && (
@@ -136,7 +136,7 @@ export function Courses() {
 
                     {/* Icon Header */}
                     <div className="flex items-center gap-3">
-                      <div className="h-12 w-12 rounded-xl bg-orange/10 text-orange flex items-center justify-center shrink-0 transition-colors group-hover:bg-orange group-hover:text-white">
+                      <div className="h-12 w-12 rounded-xl bg-navy/5 text-navy flex items-center justify-center shrink-0 transition-colors group-hover:bg-navy group-hover:text-white">
                         <IconComponent className="h-5 w-5" />
                       </div>
                     </div>
@@ -172,7 +172,7 @@ export function Courses() {
                     </ul>
 
                     {/* Enquire Now Button */}
-                    <div className="mt-6 w-full text-center rounded-xl border border-slate-200 bg-white py-3 text-xs font-bold text-slate-700 shadow-sm transition-all duration-300 group-hover:border-orange group-hover:bg-orange group-hover:text-white group-hover:shadow-md cursor-pointer flex items-center justify-center gap-1.5">
+                    <div className="mt-6 w-full text-center rounded-xl border border-slate-200 bg-white py-3 text-xs font-bold text-slate-700 shadow-sm transition-all duration-300 group-hover:border-[#ea580c] group-hover:text-[#ea580c] cursor-pointer flex items-center justify-center gap-1.5">
                       <span>Enquire Now</span>
                       <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                     </div>
