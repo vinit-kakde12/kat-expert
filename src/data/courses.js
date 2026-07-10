@@ -648,7 +648,124 @@ const crt = {
   cta: { heading: "Get placement-ready with confidence.", sub: "Join KATexpert's Campus Recruitment Training to crack written tests, GDs, technical rounds and HR interviews." },
 };
 
-export const courses = [cat, clat, ipmat, mbaCet, mcaCet, crt];
+const cuet = {
+  slug: "cuet",
+  code: "CUET",
+  name: "CUET & MH - CET Classroom Program",
+  tagline: "Program is an all-inclusive preparation package designed for students aiming to excel in both Common University Entrance Test (CUET UG) and Maharashtra CET (MH-CET).",
+  heroImage: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=800&auto=format&fit=crop",
+  logo: "https://katexperts.com/wp-content/uploads/2026/02/IPMAT.png",
+  description:
+    "The CUET & MH - CET Classroom Program is an all-inclusive preparation package designed for students aiming to excel in both the Common University Entrance Test (CUET UG) and the Maharashtra CET (MH-CET). This program offers structured concept building, physical classes, practice materials, and extensive full-length mock tests to ensure success.",
+  highlights: [
+    "General Aptitude preparation",
+    "English Language drills",
+    "General Awareness workshops",
+    "Full-length mocks & analysis",
+  ],
+  overview: [
+    { label: "Duration", value: "4 Months" },
+    { label: "Learning Mode", value: "Offline Classroom" },
+    { label: "Mock Tests", value: "15+ Full-length" },
+    { label: "Mentorship", value: "1-on-1 Personal" },
+    { label: "Material", value: "Printed + Online" },
+  ],
+  whyChoose: [
+    { title: "All-in-One Package", description: "Comprehensive coaching covering both CUET and MH-CET syllabi under one program." },
+    { title: "Expert Guidance", description: "Learn from top educators who understand the test patterns of central and state-level exams." },
+    { title: "Mock Series", description: "Regular mock tests simulating the actual exam environment with in-depth analysis." },
+  ],
+  journey: [
+    { title: "Foundation", description: "Strengthening core concepts in language and general aptitude." },
+    { title: "Concept building", description: "Classroom teaching focusing on syllabus topics." },
+    { title: "Practice", description: "Solving daily practice sheets and chapter tests." },
+    { title: "Mocks & Analysis", description: "Writing full-length mock tests and resolving doubts." },
+  ],
+  curriculum: [
+    {
+      title: "General Aptitude",
+      items: [
+        "Quantitative reasoning",
+        "Logical and analytical reasoning",
+        "Data interpretation",
+      ],
+    },
+    {
+      title: "English Language",
+      items: [
+        "Reading comprehension",
+        "Vocabulary and grammar",
+        "Synonyms and antonyms",
+      ],
+    },
+  ],
+  resources: [
+    { title: "Concept Booklets" },
+    { title: "Daily Practice Papers" },
+    { title: "Full Syllabus Mocks" },
+  ],
+  faqs: [
+    { q: "What is the duration of the CUET & MH-CET program?", a: "The program spans 4 months of intensive offline classroom training." },
+    { q: "Which exams are covered?", a: "This program covers both the Central Universities Entrance Test (CUET UG) and the Maharashtra state CET." },
+    ...brandFaqs,
+  ],
+  cta: { heading: "Prepare for top central & state universities.", sub: "Join the CUET & MH-CET classroom program at KATexpert today." },
+};
+
+const set = {
+  slug: "set",
+  code: "SET",
+  name: "Symbiosis Entrance Test (SET)",
+  tagline: "Your gateway for undergraduate admissions across prestigious Symbiosis institutes.",
+  heroImage: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=800&auto=format&fit=crop",
+  logo: "https://katexperts.com/wp-content/uploads/2026/02/IPMAT.png",
+  description:
+    "The Symbiosis Entrance Test (SET – General) is conducted by Symbiosis International (Deemed University) and serves as the primary gateway for undergraduate admissions across various prestigious Symbiosis institutes including SLS, SSE, and SCMS.",
+  highlights: [
+    "General Awareness syllabus coverage",
+    "Logical & Analytical Reasoning masterclass",
+    "English Language skill refinement",
+    "Mock test series with instant analytics",
+  ],
+  overview: [
+    { label: "Duration", value: "4 Months" },
+    { label: "Learning Mode", value: "Offline Classroom" },
+    { label: "Mock Tests", value: "15+ Full-length" },
+    { label: "Mentorship", value: "1-on-1 Personal" },
+    { label: "Material", value: "Printed + Online" },
+  ],
+  whyChoose: [
+    { title: "Symbiosis Focused", description: "Specially designed mock tests and curriculum aligned with Symbiosis exam trends." },
+    { title: "Mentorship", description: "Personal mentorship to guide you through both the written test and the personal interview rounds." },
+  ],
+  journey: [
+    { title: "Concept building", description: "Structured coverage of general awareness, logic, and english sections." },
+    { title: "Targeted Practice", description: "Solving mock papers tailored to SET pattern." },
+  ],
+  curriculum: [
+    {
+      title: "Sections Covered",
+      items: [
+        "General Awareness",
+        "Logical and Analytical Reasoning",
+        "Quantitative Aptitude",
+        "English Language",
+      ],
+    },
+  ],
+  resources: [
+    { title: "SET Practice Material" },
+    { title: "Syllabus Books" },
+    { title: "Mock Tests" },
+  ],
+  faqs: [
+    { q: "What does the SET cover?", a: "It covers General English, Quantitative Aptitude, General Awareness, and Logical & Analytical Reasoning." },
+    ...brandFaqs,
+  ],
+  cta: { heading: "Crack the Symbiosis Entrance Test.", sub: "Secure your admission in Symbiosis' premier undergraduate programs with KATexpert." },
+};
+
+export const courses = [cat, clat, ipmat, mbaCet, mcaCet, crt, cuet, set];
 export const coursesBySlug = Object.fromEntries(
   courses.map((c) => [c.slug, c])
 );
