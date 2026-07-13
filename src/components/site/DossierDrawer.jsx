@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { X, Award, Compass, LineChart } from "lucide-react";
 import arumitaImg from "@/assets/arumita_pawa.png";
 import krishImg from "@/assets/krish_vyas.png";
+import sachinImg from "@/assets/sachin-sahu.png";
 import "@/course-pages.css";
 
 const DOSSIERS = {
@@ -62,6 +63,36 @@ const DOSSIERS = {
         { number: "300+", label: "99+ Percentile Coached in Quant" },
         { number: "40%", label: "Average Speed Improvement in 8 Weeks" },
         { number: "5000+", label: "Hours of live classroom coaching" }
+      ]
+    }
+  },
+  "Sachin Sahu": {
+    name: "Sachin Sahu",
+    role: "DILR FACULTY & CAT MENTOR",
+    image: sachinImg,
+    academic: {
+      bio: "Sachin Sahu is a CAT mentor specializing in Data Interpretation & Logical Reasoning (DILR), with an outstanding track record of academic excellence. Over multiple attempts, he has mastered the logic required to crack the toughest parts of the entrance exam and now guides aspirants to achieve similar results.",
+      highlights: [
+        "<strong>99+ Percentile in DILR</strong> across three consecutive CAT attempts.",
+        "<strong>99.2 Overall CAT Percentile</strong> with 99 percentile in Quantitative Aptitude.",
+        "Converted <strong>IIM Mumbai (2026)</strong> and completed MBA from <strong>NMIMS</strong>.",
+        "Scored <strong>98.85 percentile in SNAP</strong> and <strong>261 in NMAT</strong>."
+      ]
+    },
+    philosophy: {
+      bio: "Sachin's teaching philosophy centers on building strong, concept-driven problem-solving skills rather than relying on tricks or shortcuts. He believes that mastering non-standard DILR sets requires structured analytical logic, consistency, and a disciplined mindset.",
+      highlights: [
+        "Focus on <strong>fundamental concepts</strong> over shortcuts that fail in complex exam scenarios.",
+        "Training to tackle <strong>unconventional and non-standard DILR sets</strong>.",
+        "Bringing athletic discipline and focus to exam preparation strategy."
+      ]
+    },
+    metrics: {
+      stats: [
+        { number: "99.9+", label: "Personal DILR Percentile" },
+        { number: "3x", label: "Consecutive 99+ %ile in DILR" },
+        { number: "99.2", label: "Overall CAT Percentile" },
+        { number: "7th", label: "Age Group - Ironman 70.3 Vietnam" }
       ]
     }
   }

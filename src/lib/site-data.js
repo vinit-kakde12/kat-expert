@@ -2,6 +2,7 @@ import { GraduationCap, Scale, BookOpen, Briefcase, Building2, Target } from "lu
 
 import faculty1 from "@/assets/faculty-1-aru.jpg"; 
 import faculty2 from "@/assets/faculty-2-krish.jpg"; 
+import facultySachin from "@/assets/sachin-sahu.png"; 
 
 
 
@@ -259,45 +260,53 @@ const FACULTY = [
     name: "Dr Arumita Pawa",
     designation: "MA English Literature | B.Com | NLP Practitioner | TESOL & TEFL London Business School | Certified Soft Skill Trainer",
     experience: "18+ years",
-    students:"10,000+",
-    expertise: ["VARC","Communication" ,"Mindset training"],
-    blurb: "Dr. Arumita Pawa is a dynamic academician and trainer with a distinguished career spanning over two decades in education and leadership. Formerly the Head of the Department of Commerce and Management, as well as the Junior College at Raisoni College, she has been instrumental in shaping the academic and professional journeys of countless students."
+    students: "10,000+",
+    expertise: ["VARC", "Communication", "Mindset training"],
+    blurb: "Dr. Arumita Pawa is a dynamic academician and trainer with a distinguished career spanning over two decades in education and leadership. Formerly the Head of the Department of Commerce and Management, as well as the Junior College at Raisoni College, she has been instrumental in shaping the academic and professional journeys of countless students.",
+    slug: "arumita-pawa",
+    longBio: [
+      "Dr. Arumita Pawa is a dynamic academician and trainer with a distinguished career spanning over two decades in education and leadership. Formerly the Head of the Department of Commerce and Management, as well as the Junior College at Raisoni College, she has been instrumental in shaping the academic and professional journeys of countless students.",
+      "With a strong academic foundation—holding a Ph.D. and MA in English Literature alongside a Bachelor's degree in Commerce—Dr Pawa seamlessly bridges the domains of language, business, and personality development. She is also a certified NLP Practitioner and Soft Skills Trainer, with additional credentials in TEFL and TESOL from the London College of Teachers. Her passion lies in empowering learners with not only subject knowledge but also the confidence,",
+      "communication skills, and emotional intelligence essential for personal and professional success. Dr Pawa is especially dedicated to helping students prepare for Personal Interviews (PI) and Group Discussions (GD)—equipping them with the articulation, presence, and poise required to stand out in competitive environments.",
+      "She continues to inspire through her commitment to lifelong teaching and learning, holistic education, and transformational training."
+    ]
   },
   {
     image: faculty2,
     name: "Prof. Krish Vyas",
     designation: "BE | MBA | Master Mentor Specialized in Quantitative Aptitude (QA) & Data Interpretation & Logical Reasoning (DILR)",
     experience: "5+ years",
-    students:"5,000+",
+    students: "5,000+",
     expertise: ["Quantitative Ability", "DI-LR"],
-    blurb: "An engineer and an MBA, Krish combines the analytical laser-like focus and business sense in a unique package for the competitive exam preparation arena. Having spent years of direct teaching and mentoring experience, he has emerged as the go-to guide for thousands of aspirants pursuing dreams through examinations such as CAT, CLAT, and many other entrance exams. Masters in Quants & LRDI."
+    blurb: "An engineer and an MBA, Krish combines the analytical laser-like focus and business sense in a unique package for the competitive exam preparation arena. Having spent years of direct teaching and mentoring experience, he has emerged as the go-to guide for thousands of aspirants pursuing dreams through examinations such as CAT, CLAT, and many other entrance exams. Masters in Quants & LRDI.",
+    slug: "krish-vyas",
+    longBio: [
+      "Krish Vyas is not only a mentor — he's a movement.",
+      "An engineer and an MBA, Krish combines the analytical laser-like focus and business sense in a unique package for the competitive exam preparation arena. Having spent years of direct teaching and mentoring experience, he has emerged as the go-to guide for thousands of aspirants pursuing dreams through examinations such as CAT, CLAT, and many other entrance exams. Masters in Quants & LRDI.",
+      "It's not merely his profound subject expertise or outcome-oriented techniques — it's his unshakeable dedication to his students. He doesn't merely teach; he stands with his students every step of the way, knowing their challenges, testing their limits, and celebrating each victory, big or small.",
+      "His Track Record Speaks Loud:",
+      "• Turned thousands of ordinary students into top-rankers",
+      "• Delivered top scores consistently in competitive exams",
+      "• Recognized for simplifying complex subjects into simple, actionable ideas",
+      "• A mentor who's never more than a message away",
+      "Ambition and a passion for teaching drive Krish Vyas, who is determined to not only build careers but confident, capable individuals ready to conquer the world.",
+      "If you are seeking a mentor who will not only instruct you on what to learn, but also how to think, how to win, and how to never settle – your search is over."
+    ]
   },
   {
-    image: null,
-    name: "Prof. Aashish Kate",
-    designation: "Founder & Academic Director | MBA (Top B-School), Aptitude Expert with 12+ Years Experience",
-    experience: "12+ years",
-    students: "15,000+",
-    expertise: ["Quantitative Aptitude", "Logical Reasoning"],
-    blurb: "Specialist in Quantitative Aptitude & Logical Reasoning. Renowned academic strategist who has mentored over 15,000 students for CAT and IPMAT entrances, guiding them to top-tier institutes."
-  },
-  {
-    image: null,
-    name: "Adv. Shruti Sharma",
-    designation: "Head of Legal & Verbal Entrance | LLM, CLAT Pedagogy Mentor",
-    experience: "8+ years",
-    students: "3,000+",
-    expertise: ["Legal Reasoning", "Constitutional Law", "Critical Reading"],
-    blurb: "Expert in Legal Reasoning, Constitutional Law, and Critical Reading Comprehension. Directs NLU preparation strategies and designs legal reasoning pedagogical models."
-  },
-  {
-    image: null,
-    name: "Prof. Nishant Deshmukh",
-    designation: "Lead Quantitative & DI-LR Mentor | B.Tech, 8+ Years CAT / CLAT Mentorship",
-    experience: "8+ years",
-    students: "4,000+",
-    expertise: ["Quantitative Shortcuts", "Data Interpretation", "Logical Reasoning"],
-    blurb: "Renowned for developing unique logic-based shortcuts and custom mental-math techniques for speed examinations like CAT, CLAT, and MBA CET."
+    image: facultySachin,
+    name: "Sachin Sahu",
+    designation: "DILR Faculty & CAT Mentor | MBA (NMIMS) | 3x 99+ %ile in DILR",
+    experience: "3+ years",
+    students: "1,500+",
+    expertise: ["DILR", "Quantitative Aptitude", "Exam Strategy"],
+    blurb: "CAT mentor specializing in Data Interpretation & Logical Reasoning (DILR) with 99.2 overall percentile. NMIMS MBA alumnus and IIM Mumbai convert who emphasizes conceptual problem-solving and discipline.",
+    slug: "sachin-sahu",
+    longBio: [
+      "Sachin Sahu is a CAT mentor specializing in Data Interpretation & Logical Reasoning (DILR), with a track record of 99+ percentile in DILR across three consecutive CAT attempts, an overall CAT percentile of 99.2, and 99 percentile in Quantitative Aptitude. His teaching philosophy centers on building strong problem-solving skills rather than relying on shortcuts.",
+      "Beyond CAT, Sachin has scored 98.85 percentile in SNAP and 261 in NMAT, converted IIM Mumbai (2026), and completed his MBA from NMIMS.",
+      "Off the desk, Sachin brings the same discipline to endurance sports — he’s an Ironman 70.3 Vietnam finisher (7th in his age group), a HYROX Pro finisher, and an ultra-cyclist who once rode 600 km non-stop in 36 hours."
+    ]
   }
 ];
 

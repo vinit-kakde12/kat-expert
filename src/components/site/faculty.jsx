@@ -1,4 +1,5 @@
 import { Linkedin, Twitter, Mail, Briefcase, GraduationCap, User, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { FACULTY } from "@/lib/site-data";
 import { Reveal, SectionHeading } from "./section";
 
@@ -84,9 +85,12 @@ export function Faculty() {
                       </a>
                     ))}
                   </div>
-                  <a href="#contact" className="inline-flex items-center justify-center gap-1 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider rounded-lg bg-accent text-white shadow-sm hover:bg-accent/90 active:scale-95 transition-all group/btn ml-auto">
+                  <Link 
+                    to={`/about?tab=Faculty#${f.slug}`} 
+                    className="inline-flex items-center justify-center gap-1 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider rounded-lg bg-accent text-white shadow-sm hover:bg-accent/90 active:scale-95 transition-all group/btn ml-auto cursor-pointer"
+                  >
                     Learn More <ArrowRight className="h-3 w-3 transition-transform group-hover/btn:translate-x-0.5" />
-                  </a>
+                  </Link>
                 </div>
               </div>
 

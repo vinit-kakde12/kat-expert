@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import {
   BookOpen,
@@ -26,8 +26,35 @@ import { CONTACT_INFO, COURSES, FACULTY, TOPPERS, TESTIMONIALS } from "@/lib/sit
 import DossierDrawer from "@/components/site/DossierDrawer";
 
 export default function AboutPage() {
+  const location = useLocation();
   const [activeTab, setActiveTab] = useState('About');
   const [selectedMentor, setSelectedMentor] = useState(null);
+
+  // Sync state with URL query parameters and scroll to hash anchor
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const tab = params.get('tab');
+    if (tab && ['About', 'Faculty', 'Toppers', 'Reviews', 'Contact'].includes(tab)) {
+      setActiveTab(tab);
+    }
+    const mentor = params.get('mentor');
+    if (mentor) {
+      setSelectedMentor(mentor);
+    } else {
+      setSelectedMentor(null);
+    }
+
+    // Handle smooth scrolling to specific faculty member anchor
+    if (location.hash) {
+      setTimeout(() => {
+        const id = location.hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 400); // 400ms delay ensures the DOM has updated and tab animation completed
+    }
+  }, [location.search, location.hash]);
 
   // Contact form state
   const [formData, setFormData] = useState({
@@ -320,88 +347,121 @@ export default function AboutPage() {
 
             {/* FACULTY TAB VIEW */}
             {activeTab === 'Faculty' && (
-              <div id="tab-pane-faculty">
+              <div id="tab-pane-faculty" className="bg-white border border-slate-100 rounded-3xl p-8 sm:p-12 shadow-sm text-left">
                 {/* Header */}
-                <div className="text-center max-w-3xl mx-auto mb-16">
-                  <span className="text-xs font-bold text-brand-orange uppercase tracking-widest bg-brand-orange/10 px-3 py-1 rounded-full inline-block mb-3">
-                    Elite Mentors
-                  </span>
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-brand-blue tracking-tight mb-4">
-                    Learn from the <span className="text-brand-orange">experts</span>
+                <div className="mb-12">
+                  <h2 className="text-3xl font-display font-extrabold text-brand-blue tracking-tight relative inline-block pb-3">
+                    Faculty
+                    <div className="absolute bottom-0 left-0 w-16 h-1 bg-[#ea580c] rounded-full" />
                   </h2>
-                  <p className="text-sm sm:text-base text-gray-500 leading-relaxed font-medium">
-                    Our directors and faculty members hold deep expertise in entrance preparations, helping
-                    you build core concepts and advanced shortcuts.
-                  </p>
                 </div>
 
-                {/* Faculty cards grid */}
-                <motion.div
-                  variants={containerVariants}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, margin: '-100px' }}
-                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center mb-12"
-                >
-                  {FACULTY.map((member, idx) => (
-                    <motion.div
-                      variants={itemVariants}
-                      key={idx}
-                      className="bg-white border border-slate-100 rounded-3xl p-8 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between text-left"
-                    >
-                      <div className="space-y-6">
-                        {/* Simulated Avatar Placeholder matching Theme */}
-                        <div className="w-20 h-20 bg-brand-blue rounded-2xl flex items-center justify-center text-white relative shadow-md shadow-brand-blue/15">
-                          <GraduationCap className="w-10 h-10 text-white" />
-                          <div className="absolute -bottom-1.5 -right-1.5 bg-brand-orange text-white p-1 rounded-lg shadow-sm">
-                            <Star className="w-3.5 h-3.5 fill-white" />
+                {/* Faculty List */}
+                <div className="space-y-12">
+                  {FACULTY.map((member, idx) => {
+                    // Helper function to render paragraphs and lists dynamically
+                    const renderBioParagraphs = (paragraphs) => {
+                      if (!paragraphs) return null;
+                      let inList = false;
+                      const elements = [];
+                      let currentListItems = [];
+
+                      paragraphs.forEach((p, pIdx) => {
+                        const isBullet = p.startsWith('•') || p.startsWith('-') || p.startsWith('*');
+
+                        if (isBullet) {
+                          if (!inList) {
+                            inList = true;
+                            currentListItems = [];
+                          }
+                          const text = p.replace(/^[•\-\*]\s*/, '');
+                          currentListItems.push(text);
+                        } else {
+                          if (inList) {
+                            const listKey = `list-${pIdx}`;
+                            elements.push(
+                              <ul key={listKey} className="list-disc pl-5 space-y-2 text-slate-700 text-sm md:text-base my-4">
+                                {currentListItems.map((item, i) => (
+                                  <li key={i} dangerouslySetInnerHTML={{ __html: item }} />
+                                ))}
+                              </ul>
+                            );
+                            inList = false;
+                          }
+                          elements.push(
+                            <p
+                              key={pIdx}
+                              className="text-slate-700 text-sm md:text-base leading-relaxed"
+                              dangerouslySetInnerHTML={{
+                                __html: p
+                                  .replace(/Personal Interviews \(PI\)/g, "<strong>Personal Interviews (PI)</strong>")
+                                  .replace(/Group Discussions \(GD\)/g, "<strong>Group Discussions (GD)</strong>")
+                                  .replace(/Group Discussion \(GD\)/g, "<strong>Group Discussion (GD)</strong>")
+                                  .replace(/Personal Interview \(PI\)/g, "<strong>Personal Interview (PI)</strong>")
+                              }}
+                            />
+                          );
+                        }
+                      });
+
+                      if (inList && currentListItems.length > 0) {
+                        elements.push(
+                          <ul key="final-list" className="list-disc pl-5 space-y-2 text-slate-700 text-sm md:text-base my-4">
+                            {currentListItems.map((item, i) => (
+                              <li key={i} dangerouslySetInnerHTML={{ __html: item }} />
+                            ))}
+                          </ul>
+                        );
+                      }
+
+                      return elements;
+                    };
+
+                    return (
+                      <div key={member.name} id={member.slug} className="scroll-mt-32">
+                        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                          {/* Left Column: Photo */}
+                          <div className="col-span-12 md:col-span-3 flex justify-center md:justify-start">
+                            <div className="w-full max-w-[220px] aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-slate-100 bg-slate-50 flex items-center justify-center">
+                              {member.image ? (
+                                <img
+                                  src={member.image}
+                                  alt={member.name}
+                                  className="w-full h-full object-cover"
+                                />
+                              ) : (
+                                <div className="w-full h-full flex items-center justify-center bg-brand-blue text-white">
+                                  <span className="text-2xl font-bold font-display">{member.name[0]}</span>
+                                </div>
+                              )}
+                            </div>
+                          </div>
+
+                          {/* Right Column: Bio */}
+                          <div className="col-span-12 md:col-span-9 space-y-4">
+                            <div>
+                              <h3 className="text-2xl font-display font-extrabold text-brand-blue tracking-tight">
+                                {member.name}
+                              </h3>
+                              <p className="mt-2 text-xs md:text-sm font-semibold text-[#ea580c] leading-relaxed uppercase tracking-wider">
+                                {member.designation}
+                              </p>
+                            </div>
+
+                            <div className="space-y-4">
+                              {renderBioParagraphs(member.longBio)}
+                            </div>
                           </div>
                         </div>
 
-                        <div className="space-y-2">
-                          <h3 className="text-2xl font-bold text-brand-blue">{member.name}</h3>
-                          <div className="text-xs font-bold text-brand-orange uppercase tracking-wider bg-brand-orange/5 py-1 px-3.5 rounded-full inline-block">
-                            {member.role}
-                          </div>
-                        </div>
-
-                        {/* Faculty Attributes */}
-                        <div className="space-y-3.5 border-t border-slate-50 pt-4">
-                          <div className="flex items-start space-x-3 text-xs text-gray-500 leading-normal font-medium">
-                            <Award className="w-4 h-4 text-brand-blue shrink-0 mt-0.5" />
-                            <span>
-                              Credentials: <strong>{member.credentials || "Expert Trainer"}</strong>
-                            </span>
-                          </div>
-                          <div className="flex items-start space-x-3 text-xs text-gray-500 leading-relaxed font-medium">
-                            <Briefcase className="w-4 h-4 text-brand-blue shrink-0 mt-0.5" />
-                            <span>
-                              Focus: <strong>{member.experience || member.expertise.join(", ")}</strong>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Card actions */}
-                      <div className="mt-8 pt-4 border-t border-slate-50 flex items-center justify-between text-[10px] text-slate-400 font-bold uppercase tracking-wider">
-                        <span>Nagpur Center Faculty</span>
-                        {member.name === "Dr Arumita Pawa" || member.name === "Prof. Krish Vyas" ? (
-                          <button
-                            onClick={() => setSelectedMentor(member.name)}
-                            className="text-brand-orange font-extrabold hover:text-brand-orange-light flex items-center gap-1 cursor-pointer"
-                          >
-                            <span>Dossier</span>
-                            <ArrowRight className="w-3 h-3" />
-                          </button>
-                        ) : (
-                          <span className="text-green-500 flex items-center space-x-1">
-                            <span>● Active Mentor</span>
-                          </span>
+                        {/* Orange Divider between rows */}
+                        {idx < FACULTY.length - 1 && (
+                          <div className="w-full border-t border-[#ea580c] my-12" />
                         )}
                       </div>
-                    </motion.div>
-                  ))}
-                </motion.div>
+                    );
+                  })}
+                </div>
               </div>
             )}
 
