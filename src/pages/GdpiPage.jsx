@@ -191,7 +191,7 @@ export default function GdpiPage() {
                           target="_blank"
                           rel="noopener noreferrer"
                           download
-                          className="inline-flex items-center gap-1.5 rounded-xl bg-orange hover:bg-orange-deep px-4 py-2.5 text-xs font-bold text-white shadow transition-colors cursor-pointer"
+                          className="inline-flex items-center gap-1.5 rounded-xl border border-[#ea580c] bg-transparent hover:bg-[#ea580c]/5 px-4 py-2.5 text-xs font-bold text-[#ea580c] transition-colors cursor-pointer"
                         >
                           <Download className="h-3.5 w-3.5" />
                           Download
@@ -277,7 +277,7 @@ export default function GdpiPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 download
-                className="inline-flex items-center gap-1 bg-[#ea580c] hover:bg-[#d94e06] text-white text-[11px] font-bold uppercase tracking-wider px-4 py-2 rounded transition-colors cursor-pointer"
+                className="inline-flex items-center gap-1 border border-[#ea580c] bg-transparent hover:bg-[#ea580c]/5 text-[#ea580c] text-[11px] font-bold uppercase tracking-wider px-4 py-2 rounded transition-colors cursor-pointer"
               >
                 Download PDF
               </a>
