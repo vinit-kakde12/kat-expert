@@ -64,27 +64,27 @@ export default function CoursesPage() {
       
       <div className="container-x max-w-6xl mx-auto mt-12 px-4">
         {/* Header Section */}
-        <div className="text-center max-w-3xl mx-auto mb-12" id="courses-header-section">
-          <span className="text-xs font-bold text-[#ea580c] uppercase tracking-widest bg-[#ea580c]/10 px-3 py-1 rounded-full inline-block mb-3">
+        <div className="text-center max-w-3xl mx-auto mb-8" id="courses-header-section">
+          <span className="text-[10px] font-bold text-[#ea580c] uppercase tracking-widest bg-[#ea580c]/10 px-2.5 py-0.5 rounded-full inline-block mb-2">
             Our Programs
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-navy tracking-tight mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-navy tracking-tight mb-3">
             Courses built to deliver <span className="text-[#ea580c]">results</span>
           </h2>
-          <p className="text-sm sm:text-base text-gray-500 leading-relaxed font-medium">
+          <p className="text-xs sm:text-sm text-gray-500 leading-relaxed font-medium">
             Choose your exam track. Every program runs in offline mode with classes, mocks and personal mentorship.
           </p>
         </div>
 
         {/* Categories Tab Bar */}
-        <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 mb-12" id="courses-filter-tabs">
+        <div className="flex flex-wrap justify-center items-center gap-1.5 sm:gap-2 mb-8" id="courses-filter-tabs">
           {categories.map((cat) => {
             const isActive = selectedCategory === cat;
             return (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-5 py-2 sm:px-6 sm:py-2.5 rounded-full text-sm font-semibold tracking-wide transition-all cursor-pointer ${
+                className={`px-4 py-1.5 sm:px-5 sm:py-2 rounded-full text-[11px] sm:text-xs font-semibold tracking-wide transition-all cursor-pointer ${
                   isActive
                     ? 'bg-navy text-white shadow-md scale-105'
                     : 'bg-slate-100 hover:bg-slate-200 text-navy hover:scale-102'
