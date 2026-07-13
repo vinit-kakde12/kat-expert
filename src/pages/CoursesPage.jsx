@@ -98,7 +98,7 @@ export default function CoursesPage() {
         </div>
 
         {/* Courses Cards Grid */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="courses-grid-container">
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="courses-grid-container">
           <AnimatePresence mode="popLayout">
             {filteredCourses.map((course) => {
               const IconComponent = getCourseIcon(course.slug);
@@ -120,13 +120,13 @@ export default function CoursesPage() {
                 >
                   <Link
                     to={`/courses/${course.slug}`}
-                    className="group card-premium p-6 flex flex-col h-full relative overflow-hidden bg-white border border-slate-100 hover:border-orange/20 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 rounded-3xl"
+                    className="group card-premium p-5 flex flex-col h-full relative overflow-hidden bg-white border border-slate-100 hover:border-orange/20 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 rounded-3xl"
                     id={`course-card-${course.slug}`}
                   >
                     {/* Featured Badge */}
                     {isFeatured && (
                       <div
-                        className="absolute top-5 right-5 bg-[#ea580c] text-white text-[9px] font-bold px-2.5 py-1 rounded-full flex items-center space-x-1 uppercase tracking-wider"
+                        className="absolute top-4 right-4 bg-[#ea580c] text-white text-[8px] font-bold px-2.5 py-0.5 rounded-full flex items-center space-x-1 uppercase tracking-wider"
                         id={`featured-badge-${course.slug}`}
                       >
                         <Star className="w-2.5 h-2.5 fill-white text-white" />
@@ -136,21 +136,21 @@ export default function CoursesPage() {
 
                     {/* Icon Header */}
                     <div className="flex items-center gap-3">
-                      <div className="h-12 w-12 rounded-xl bg-navy/5 text-navy flex items-center justify-center shrink-0 transition-colors group-hover:bg-navy group-hover:text-white">
-                        <IconComponent className="h-5 w-5" />
+                      <div className="h-10 w-10 rounded-lg bg-navy/5 text-navy flex items-center justify-center shrink-0 transition-colors group-hover:bg-navy group-hover:text-white">
+                        <IconComponent className="h-4.5 w-4.5" />
                       </div>
                     </div>
 
                     {/* Title & Description */}
-                    <h3 className="mt-4 font-display text-xl font-extrabold text-navy group-hover:text-orange transition-colors">
+                    <h3 className="mt-3 font-display text-lg font-extrabold text-navy group-hover:text-orange transition-colors">
                       {course.code}
                     </h3>
-                    <p className="mt-2 text-xs leading-relaxed text-slate-500 font-medium min-h-[50px]">
+                    <p className="mt-1.5 text-xs leading-relaxed text-slate-500 font-medium min-h-[40px]">
                       {course.tagline}
                     </p>
 
                     {/* Meta Row: Duration & Mode */}
-                    <div className="mt-4 flex items-center gap-4 text-[10px] font-bold text-slate-500 uppercase tracking-wider bg-slate-50/50 rounded-xl p-2.5 border border-slate-100">
+                    <div className="mt-3 flex items-center gap-4 text-[9px] font-bold text-slate-500 uppercase tracking-wider bg-slate-50/50 rounded-xl py-2 px-3 border border-slate-100">
                       <span className="flex items-center gap-1">
                         <Clock className="h-3.5 w-3.5 text-orange" />
                         {duration}
@@ -162,17 +162,17 @@ export default function CoursesPage() {
                     </div>
 
                     {/* Highlights List */}
-                    <ul className="mt-5 space-y-2 flex-1">
+                    <ul className="mt-4 space-y-1.5 flex-1">
                       {course.highlights.slice(0, 3).map((h) => (
-                        <li key={h} className="flex items-center gap-2 text-xs font-semibold text-slate-700">
-                          <Check className="h-4 w-4 shrink-0 text-orange bg-orange/10 rounded-full p-0.5" />
+                        <li key={h} className="flex items-center gap-2 text-[11px] font-semibold text-slate-700">
+                          <Check className="h-3.5 w-3.5 shrink-0 text-orange bg-orange/10 rounded-full p-0.5" />
                           <span>{h}</span>
                         </li>
                       ))}
                     </ul>
 
                     {/* Enquire Now Button */}
-                    <div className="mt-6 w-full text-center rounded-xl border border-slate-250 bg-white py-3 text-xs font-bold text-slate-700 shadow-sm transition-all duration-300 group-hover:border-[#ea580c] group-hover:text-[#ea580c] cursor-pointer flex items-center justify-center gap-1.5">
+                    <div className="mt-5 w-full text-center rounded-xl border border-slate-250 bg-white py-2 text-xs font-bold text-slate-700 shadow-sm transition-all duration-300 group-hover:border-[#ea580c] group-hover:text-[#ea580c] cursor-pointer flex items-center justify-center gap-1.5">
                       <span>Enquire Now</span>
                       <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                     </div>
