@@ -174,7 +174,7 @@ export function Courses() {
 
                     {/* Enquire Now Button */}
                     <div className="mt-3.5 w-full text-center rounded-lg border border-slate-200 bg-white py-1.5 text-[11px] font-bold text-slate-700 shadow-sm transition-all duration-300 group-hover:border-[#ea580c] group-hover:text-[#ea580c] cursor-pointer flex items-center justify-center gap-1">
-                      <span>Enquire Now</span>
+                      <span>Explore Program</span>
                       <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
                     </div>
                   </Link>
