@@ -200,77 +200,6 @@ function CoursesDropdown({ scrolled }) {
   );
 }
 
-function GalleryDropdown({ scrolled }) {
-  const [open, setOpen] = useState(false);
-  const location = useLocation();
-
-  const isGalleryActive = ["/visual-gallery", "/video-testimonials", "/news-events"].includes(location.pathname);
-
-  const triggerClass = `inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-all cursor-pointer ${
-    open || isGalleryActive
-      ? "bg-[#ea580c] text-white shadow-soft"
-      : scrolled
-      ? "text-foreground/80 hover:bg-secondary hover:text-foreground"
-      : "text-white/85 hover:bg-white/10 hover:text-white"
-  }`;
-
-  return (
-    <div
-      className="relative"
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
-    >
-      <button
-        type="button"
-        aria-haspopup="menu"
-        aria-expanded={open}
-        className={triggerClass}
-      >
-        Gallery
-        <ChevronDown className={`h-3.5 w-3.5 transition-transform ${open ? "rotate-180" : ""}`} />
-      </button>
-
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, y: 6 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 6 }}
-            transition={{ duration: 0.15 }}
-            className="absolute left-0 top-full z-50 pt-2"
-          >
-            <div className="w-[190px] rounded-xl border border-border bg-white py-1 shadow-card text-left flex flex-col overflow-hidden">
-              <Link
-                to="/visual-gallery"
-                onClick={() => setOpen(false)}
-                className="block px-4 py-2.5 text-sm font-semibold text-navy hover:bg-[#ea580c]/5 hover:text-[#ea580c] transition-colors"
-              >
-                Visual Gallery
-              </Link>
-              <div className="border-t border-border/60 w-full" />
-              <Link
-                to="/video-testimonials"
-                onClick={() => setOpen(false)}
-                className="block px-4 py-2.5 text-sm font-semibold text-navy hover:bg-[#ea580c]/5 hover:text-[#ea580c] transition-colors"
-              >
-                Video Testimonials
-              </Link>
-              <div className="border-t border-border/60 w-full" />
-              <Link
-                to="/news-events"
-                onClick={() => setOpen(false)}
-                className="block px-4 py-2.5 text-sm font-semibold text-navy hover:bg-[#ea580c]/5 hover:text-[#ea580c] transition-colors"
-              >
-                News & Events
-              </Link>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-}
-
 function MobileNavItem({ item, onNavigate }) {
   const [expanded, setExpanded] = useState(false);
   const [pyqsExpanded, setPyqsExpanded] = useState(false);
@@ -526,8 +455,7 @@ function Navbar() {
               <li key={l.label}>
                 {l.label === "Courses" ? (
                   <CoursesDropdown scrolled={scrolled} />
-                ) : l.label === "Gallery" ? (
-                  <GalleryDropdown scrolled={scrolled} />
+
                 ) : l.children ? (
                   <DesktopDropdown item={l} scrolled={scrolled} />
                 ) : (

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import {
@@ -24,17 +24,228 @@ import {
 } from 'lucide-react';
 import { CONTACT_INFO, COURSES, FACULTY, TOPPERS, TESTIMONIALS } from "@/lib/site-data";
 import DossierDrawer from "@/components/site/DossierDrawer";
+import galleryData from "@/data/gallery.json";
+import { Lightbox } from "@/components/site/Lightbox";
+
+const VIDEO_TESTIMONIALS = [
+  {
+    id: "abeer",
+    youtubeId: "I1Z6BsYjHXk",
+    name: "Abeer Bhaiya",
+    exam: "CAT",
+    college: "IIM Ahmedabad",
+    score: "99.8%ile",
+    quote: "KATexpert gave me the structure I needed to convert my CAT dream into reality.",
+    title: "Hear It From Our Achievers"
+  },
+  {
+    id: "khushi",
+    youtubeId: "RUch3M7DeR0",
+    name: "Khushi Khandelwal",
+    exam: "IPMAT",
+    college: "IIM Indore",
+    score: "AIR 12",
+    quote: "The mentorship here is unmatched — every doubt cleared, every step guided.",
+    title: "Why Students Trust KATexpert"
+  },
+  {
+    id: "arpit",
+    youtubeId: "QxO2NxT7BxA",
+    name: "Arpit",
+    exam: "MBA CET",
+    college: "JBIMS Mumbai",
+    score: "99.94%ile",
+    quote: "From average scores to a top JBIMS seat — the KATexpert grind changed everything.",
+    title: "Arpit's CET Success Story"
+  },
+  {
+    id: "tanishq",
+    youtubeId: "7WWzJHTznMs",
+    name: "Tanishq Chhajer",
+    exam: "CAT",
+    college: "IIM Bangalore",
+    score: "99.6%ile",
+    quote: "The faculty knows exactly where students struggle and how to fix it fast.",
+    title: "Get the Guidance You Deserve"
+  },
+  {
+    id: "atharv",
+    youtubeId: "D2MOUroto0k",
+    name: "Atharv",
+    exam: "MBA CET",
+    college: "SIMSREE Mumbai",
+    score: "99.87%ile",
+    quote: "Consistent mocks and honest feedback — that's the KATexpert formula.",
+    title: "Atharv's CET Success Story"
+  },
+  {
+    id: "why-love",
+    youtubeId: "yYUONg1f-Sw",
+    name: "Priya S.",
+    exam: "CAT",
+    college: "IIM Lucknow",
+    score: "99.5%ile",
+    quote: "It stopped feeling like coaching and started feeling like a second home.",
+    title: "Why Students Love KATexpert"
+  },
+  {
+    id: "rupali",
+    youtubeId: "e_e0P-FHeJ8",
+    name: "Rupali",
+    exam: "MCA CET",
+    college: "VJTI Mumbai",
+    score: "99.72%ile",
+    quote: "Personal attention that big institutes just can't offer.",
+    title: "Rupali's Success Story"
+  },
+  {
+    id: "comfort",
+    youtubeId: "5QxsWC1Jkz4",
+    name: "Aditya M.",
+    exam: "IPMAT",
+    college: "IIM Rohtak",
+    score: "AIR 47",
+    quote: "The environment lets you ask the silliest question without hesitation.",
+    title: "Why Students Feel Comfortable Here"
+  },
+  {
+    id: "guidance",
+    youtubeId: "Ns_tSPuYHAA",
+    name: "Sneha K.",
+    exam: "CRT",
+    college: "TCS Digital",
+    score: "Placed",
+    quote: "Cracked my first campus interview thanks to KATexpert's CRT program.",
+    title: "Success Starts with the Right Guidance"
+  },
+  {
+    id: "kasak",
+    youtubeId: "5-BL0hHz0IQ",
+    name: "Kasak",
+    exam: "CAT",
+    college: "IIM Kozhikode",
+    score: "99.3%ile",
+    quote: "Went from fearing quant to topping quant sectionals — literally.",
+    title: "Kasak's Math Transformation Story"
+  },
+  {
+    id: "yashi",
+    youtubeId: "rjA_MCLB2UM",
+    name: "Yashi",
+    exam: "CAT",
+    college: "IIM Calcutta",
+    score: "99.91%ile",
+    quote: "Strategy sessions with mentors saved months of misdirected effort.",
+    title: "Yashi's CAT Preparation Strategy"
+  },
+  {
+    id: "krish",
+    youtubeId: "F1B35HJKOpM",
+    name: "Krish Sir's Batch",
+    exam: "CAT",
+    college: "Multiple IIMs",
+    score: "99+%ile",
+    quote: "Krish Sir breaks down CAT into a plan you can execute.",
+    title: "CAT 2025 Exam Pattern & Strategy"
+  },
+  {
+    id: "arumita",
+    youtubeId: "4F12hXxDKr4",
+    name: "Arumita Ma'am's Batch",
+    exam: "IPMAT",
+    college: "IIM Indore & Rohtak",
+    score: "Top Ranks",
+    quote: "Every IPMAT trick condensed into actionable classroom insights.",
+    title: "IPMAT Tips You Can't Miss"
+  },
+  {
+    id: "varc",
+    youtubeId: "Q-87AntscUw",
+    name: "Featured Masterclass",
+    exam: "CAT",
+    college: "All Programs",
+    score: "Featured",
+    quote: "A masterclass on VARC strategy and attempt planning that changes how you approach the section.",
+    title: "VARC Strategy 2025 — Attempt & Exam Pattern"
+  }
+];
+
+const NEWS_EVENTS = [
+  {
+    id: 1,
+    type: "Seminar",
+    title: "National B-School Selection Seminar 2026",
+    date: "July 25, 2026",
+    time: "4:00 PM - 7:00 PM",
+    venue: "Dharampeth Centre, Nagpur",
+    desc: "A comprehensive guide on shortlisting colleges, CAT cutoffs, and preparing for WAT/GD/PI rounds led by our lead director."
+  },
+  {
+    id: 2,
+    type: "Workshop",
+    title: "MBA CET Speed Building Mock Bootcamp",
+    date: "August 02, 2026",
+    time: "10:00 AM - 2:00 PM",
+    venue: "Online via Zoom & Centre offline",
+    desc: "Interactive strategy session mapping out 150 shortcut tricks for QA, DI, and Logical Reasoning questions."
+  },
+  {
+    id: 3,
+    type: "News",
+    title: "KAT Expert Nagpur Students Shine in MCA CET Results",
+    date: "Published June 14, 2026",
+    time: "Nagpur Times",
+    venue: "Press Release",
+    desc: "Over 20 students score above 99.5 percentile in the Maharashtra MCA CET exam, securing seats in VJTI, SPIT, and COEP."
+  },
+  {
+    id: 4,
+    type: "Workshop",
+    title: "CLAT Legal Reasoning Mastery workshop",
+    date: "August 18, 2026",
+    time: "2:00 PM - 5:00 PM",
+    venue: "Dharampeth Centre, Nagpur",
+    desc: "Analyze core legal concepts, constitution principles, and speed analysis of comprehension passages."
+  }
+];
 
 export default function AboutPage() {
   const location = useLocation();
   const [activeTab, setActiveTab] = useState('About');
   const [selectedMentor, setSelectedMentor] = useState(null);
 
+  // Gallery Sub-tab states
+  const [gallerySubTab, setGallerySubTab] = useState("photos");
+  const [galleryCategory, setGalleryCategory] = useState("All");
+  const [galleryLightboxIndex, setGalleryLightboxIndex] = useState(null);
+  const [galleryVideoFilter, setGalleryVideoFilter] = useState("All");
+
+  const filteredPhotos = useMemo(() => {
+    if (galleryCategory === "All") return galleryData;
+    return galleryData.filter((i) => i.category === galleryCategory);
+  }, [galleryCategory]);
+
+  const lightboxImages = useMemo(() => {
+    return filteredPhotos.map((f) => ({
+      src: f.src,
+      full: f.full,
+      w: f.w,
+      h: f.h,
+      category: f.category,
+      alt: `${f.category} — KAT Experts`,
+    }));
+  }, [filteredPhotos]);
+
+  const filteredVideos = useMemo(() => {
+    if (galleryVideoFilter === "All") return VIDEO_TESTIMONIALS;
+    return VIDEO_TESTIMONIALS.filter((t) => t.exam === galleryVideoFilter);
+  }, [galleryVideoFilter]);
+
   // Sync state with URL query parameters and scroll to hash anchor
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const tab = params.get('tab');
-    if (tab && ['About', 'Faculty', 'Toppers', 'Reviews', 'Contact'].includes(tab)) {
+    if (tab && ['About', 'Faculty', 'Gallery', 'Reviews', 'Contact'].includes(tab)) {
       setActiveTab(tab);
     }
     const mentor = params.get('mentor');
@@ -108,7 +319,7 @@ export default function AboutPage() {
   const tabs = [
     { id: 'About', label: 'About Us' },
     { id: 'Faculty', label: 'Elite Mentors' },
-    { id: 'Toppers', label: 'Hall of Fame' },
+    { id: 'Gallery', label: 'Gallery' },
     { id: 'Reviews', label: 'Reviews' },
     { id: 'Contact', label: 'Contact Us' }
   ];
@@ -465,91 +676,199 @@ export default function AboutPage() {
               </div>
             )}
 
-            {/* TOPPERS TAB VIEW */}
-            {activeTab === 'Toppers' && (
-              <div id="tab-pane-toppers">
+            {/* GALLERY TAB VIEW */}
+            {activeTab === 'Gallery' && (
+              <div id="tab-pane-gallery" className="space-y-10">
                 {/* Header */}
-                <div className="text-center max-w-3xl mx-auto mb-16">
+                <div className="text-center max-w-3xl mx-auto mb-8">
                   <span className="text-xs font-bold text-brand-orange uppercase tracking-widest bg-brand-orange/10 px-3 py-1 rounded-full inline-block mb-3">
-                    Hall of Fame
+                    Gallery
                   </span>
                   <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-brand-blue tracking-tight mb-4">
-                    Our rank story starts <span className="text-brand-orange">here</span>
+                    Life at KATexpert in <span className="text-brand-orange">Frames</span>
                   </h2>
                   <p className="text-sm sm:text-base text-gray-500 leading-relaxed font-medium">
-                    Discover how systematic coaching, consistent practice, and personal faculty feedback
-                    translates into top percentiles and premium admits.
+                    A glimpse into our classrooms, victory celebrations, mock bootcamp sessions, and interactive workshops.
                   </p>
                 </div>
 
-                {/* Toppers grid */}
-                <motion.div
-                  variants={containerVariants}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, margin: '-100px' }}
-                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12"
-                >
-                  {TOPPERS.map((topper, idx) => (
-                    <motion.div
-                      variants={itemVariants}
-                      key={idx}
-                      className="bg-white border border-slate-100 rounded-3xl p-6 sm:p-8 shadow-md hover:shadow-xl transition-all duration-300 relative flex flex-col justify-between overflow-hidden text-left"
-                    >
-                      <div className="absolute top-0 right-0 w-16 h-16 bg-brand-orange/5 rounded-bl-full flex items-center justify-center -z-1">
-                        <Trophy className="w-5 h-5 text-brand-orange absolute top-3.5 right-3.5" />
-                      </div>
-
-                      <div className="space-y-5">
-                        <div className="space-y-1">
-                          <div className="text-xl sm:text-2xl font-display font-black text-brand-orange tracking-tight">
-                            {topper.achievement.split(' ')[0]}{' '}
-                            <span className="text-lg font-bold">
-                              {topper.achievement.split(' ').slice(1).join(' ')}
-                            </span>
-                          </div>
-                          <div className="text-[10px] font-bold text-brand-blue uppercase bg-brand-blue/5 py-1 px-3 rounded-full inline-block">
-                            {topper.percentileOrRank}
-                          </div>
-                        </div>
-
-                        <div className="space-y-1">
-                          <h3 className="text-lg font-bold text-brand-blue">{topper.name}</h3>
-                          <div className="text-xs text-gray-400 font-bold">{topper.course}</div>
-                        </div>
-                      </div>
-
-                      <div className="mt-8 pt-4 border-t border-slate-50 flex items-center justify-between text-[10px] text-slate-400 font-bold uppercase tracking-wider">
-                        <span>Batch: {topper.year}</span>
-                        <span className="flex items-center space-x-1 text-brand-orange">
-                          <Award className="w-3.5 h-3.5" />
-                          <span>Success Admit</span>
-                        </span>
-                      </div>
-                    </motion.div>
-                  ))}
-                </motion.div>
-
-                {/* Callout */}
-                <div className="bg-brand-blue text-white rounded-3xl p-8 sm:p-10 shadow-lg relative overflow-hidden text-left">
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl" />
-                  <div className="flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
-                    <div className="flex items-center space-x-4">
-                      <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-brand-orange shrink-0">
-                        <TrendingUp className="w-6 h-6" />
-                      </div>
-                      <div>
-                        <h4 className="text-lg font-bold">Write Your Own Success Admit Story</h4>
-                        <p className="text-xs text-slate-300 font-semibold mt-0.5">
-                          Let KATexpert help structure your path toward the nation's premier campuses.
-                        </p>
-                      </div>
-                    </div>
-                    <a href="#contact" className="text-xs font-bold uppercase bg-brand-orange text-white px-5 py-3 rounded-full tracking-wider shadow-md hover:bg-brand-orange-light transition-all text-center">
-                      Nagpur Campus Enrolments Open
-                    </a>
+                {/* Sub-tabs Nav */}
+                <div className="flex justify-center border-b border-gray-200 max-w-md mx-auto mb-10">
+                  <div className="flex space-x-8">
+                    {[
+                      { id: "photos", label: "Photos" },
+                      { id: "videos", label: "Videos" },
+                      { id: "news", label: "News & Events" },
+                    ].map((tab) => {
+                      const isActive = gallerySubTab === tab.id;
+                      return (
+                        <button
+                          key={tab.id}
+                          onClick={() => setGallerySubTab(tab.id)}
+                          className={`pb-4 text-sm font-semibold tracking-wide border-b-2 transition-all cursor-pointer ${
+                            isActive
+                              ? "border-brand-orange text-brand-orange"
+                              : "border-transparent text-gray-400 hover:text-gray-600"
+                          }`}
+                        >
+                          {tab.label}
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
+
+                {/* Content Render */}
+                {gallerySubTab === "photos" && (
+                  <div className="space-y-6">
+                    {/* Photo category buttons */}
+                    <div className="flex flex-wrap justify-center gap-2 mb-8">
+                      {["All", "Achievers", "Institute Buzz", "Victory Celebration", "GD / PI Preparation"].map((cat) => (
+                        <button
+                          key={cat}
+                          onClick={() => setGalleryCategory(cat)}
+                          className={`px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all cursor-pointer ${
+                            galleryCategory === cat
+                              ? "bg-brand-orange text-white border-transparent shadow-sm"
+                              : "bg-white hover:bg-slate-50 text-slate-600 border-slate-200"
+                          }`}
+                        >
+                          {cat}
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Photo Grid */}
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                      {filteredPhotos.map((item, idx) => (
+                        <div
+                          key={idx}
+                          onClick={() => setGalleryLightboxIndex(idx)}
+                          className="group relative overflow-hidden rounded-2xl bg-slate-100 aspect-square cursor-zoom-in border border-slate-200/60 shadow-sm"
+                        >
+                          <img
+                            src={item.src}
+                            alt={item.category}
+                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <span className="text-[10px] font-bold text-white uppercase tracking-wider bg-brand-orange px-2 py-0.5 rounded">
+                              {item.category}
+                            </span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Lightbox */}
+                    {galleryLightboxIndex !== null && (
+                      <Lightbox
+                        images={lightboxImages}
+                        index={galleryLightboxIndex}
+                        onClose={() => setGalleryLightboxIndex(null)}
+                        onIndexChange={setGalleryLightboxIndex}
+                      />
+                    )}
+                  </div>
+                )}
+
+                {gallerySubTab === "videos" && (
+                  <div className="space-y-6">
+                    {/* Video filters */}
+                    <div className="flex flex-wrap justify-center gap-2 mb-8">
+                      {["All", "CAT", "IPMAT", "MBA CET", "MCA CET", "CRT"].map((cat) => (
+                        <button
+                          key={cat}
+                          onClick={() => setGalleryVideoFilter(cat)}
+                          className={`px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all cursor-pointer ${
+                            galleryVideoFilter === cat
+                              ? "bg-brand-orange text-white border-transparent shadow-sm"
+                              : "bg-white hover:bg-slate-50 text-slate-600 border-slate-200"
+                          }`}
+                        >
+                          {cat}
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Videos Grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                      {filteredVideos.map((video, idx) => (
+                        <div key={idx} className="bg-white border border-slate-100 rounded-3xl overflow-hidden shadow-md flex flex-col justify-between">
+                          <div className="relative aspect-video bg-black">
+                            <iframe
+                              src={`https://www.youtube.com/embed/${video.youtubeId}`}
+                              title={video.title}
+                              frameBorder="0"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                              allowFullScreen
+                              className="absolute inset-0 w-full h-full"
+                            />
+                          </div>
+                          <div className="p-5 flex-1 flex flex-col justify-between text-left">
+                            <div className="space-y-2">
+                              <div className="flex justify-between items-center">
+                                <span className="text-[10px] font-bold text-brand-orange uppercase bg-brand-orange/5 px-2.5 py-1 rounded-full">
+                                  {video.exam}
+                                </span>
+                                {video.score && (
+                                  <span className="text-[10px] font-bold text-brand-blue uppercase bg-brand-blue/5 px-2.5 py-1 rounded-full">
+                                    {video.score}
+                                  </span>
+                                )}
+                              </div>
+                              <h3 className="font-display font-bold text-brand-blue text-sm leading-normal">
+                                {video.title}
+                              </h3>
+                              <p className="text-xs text-gray-500 italic">
+                                "{video.quote}"
+                              </p>
+                            </div>
+                            <div className="mt-4 pt-3 border-t border-slate-50 flex items-center justify-between text-[11px] font-bold text-gray-400">
+                              <span>{video.name}</span>
+                              <span className="text-brand-blue">{video.college}</span>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {gallerySubTab === "news" && (
+                  <div className="max-w-4xl mx-auto space-y-6">
+                    <div className="flex flex-col gap-6">
+                      {NEWS_EVENTS.map((event) => (
+                        <div key={event.id} className="rounded-3xl border border-slate-100 bg-white p-6 shadow-md flex flex-col md:flex-row gap-6 text-left">
+                          {/* Type Badge */}
+                          <div className="md:w-36 shrink-0 flex flex-col items-start gap-1">
+                            <span className={`text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider ${
+                              event.type === "News"
+                                ? "bg-blue-50 text-blue-600 border border-blue-100"
+                                : event.type === "Workshop"
+                                ? "bg-amber-50 text-amber-600 border border-amber-100"
+                                : "bg-emerald-50 text-emerald-600 border border-emerald-100"
+                            }`}>
+                              {event.type}
+                            </span>
+                            <span className="mt-2 text-xs text-slate-500 font-semibold">{event.date}</span>
+                            <span className="text-[11px] text-slate-400">{event.time}</span>
+                          </div>
+                          {/* Event Content */}
+                          <div className="flex-1 flex flex-col justify-center">
+                            <h3 className="font-display text-sm sm:text-base font-bold text-brand-blue leading-normal">{event.title}</h3>
+                            <p className="mt-2 text-xs text-slate-500 leading-relaxed">{event.desc}</p>
+                            <div className="mt-3 flex items-center gap-1.5 text-xs text-brand-orange font-semibold">
+                              <MapPin className="h-3.5 w-3.5" />
+                              {event.venue}
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             )}
 

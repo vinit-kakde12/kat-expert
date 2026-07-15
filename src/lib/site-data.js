@@ -84,14 +84,6 @@ const NAV_LINKS = [
       { label: "Others", href: "/#contact" }
     ]
   },
-  {
-    label: "Gallery",
-    children: [
-      { label: "Visual Gallery", href: "/visual-gallery" },
-      { label: "Video Testimonials", href: "/video-testimonials" },
-      { label: "News & Events", href: "/news-events" }
-    ]
-  },
   { label: "Contact", href: "/#contact" }
 ];
 
