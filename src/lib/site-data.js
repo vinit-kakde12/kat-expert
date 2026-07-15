@@ -65,7 +65,7 @@ const BRAND = {
 const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Courses", href: "/#courses" },
-  { label: "About", href: "/#about" },
+  { label: "About", href: "/about" },
   {
     label: "Student Resources",
     children: [
