@@ -441,24 +441,6 @@ const TESTIMONIALS = [
     name: "Rimjhim Singh",
     rating: 5,
     text: "Even though I joined KATexpert later than most students, the teachers went out of their way to help me cover the syllabus. Their structured worksheets helped me improve quickly, scoring an 88% with constant support."
-  },
-  {
-    image: null,
-    name: "Divya Joshi",
-    rating: 5,
-    text: "The personal mentorship at KATexpert is unlike any other institute in Nagpur. Prof. Aashish Kate solved my doubts personally and helped me raise my mock scores from 75 percentile to 99+ in the actual CAT."
-  },
-  {
-    image: null,
-    name: "Advait Rao",
-    rating: 5,
-    text: "Excellent study material and rigorous daily legal reasoning capsules. The hybrid mode was incredibly helpful as I could attend mock analysis sessions from home as well."
-  },
-  {
-    image: null,
-    name: "Tanvi Shah",
-    rating: 5,
-    text: "KATexpert provided the exact guidance needed to crack IPMAT after class 12. The higher math classes were simplified beautifully, and the interview prep sessions gave me immense confidence."
   }
 ];
 
