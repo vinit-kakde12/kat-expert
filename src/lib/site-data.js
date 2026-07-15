@@ -66,8 +66,6 @@ const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Courses", href: "/#courses" },
   { label: "About", href: "/#about" },
-  { label: "Toppers", href: "/#toppers" },
-  { label: "Reviews", href: "/#testimonials" },
   {
     label: "Student Resources",
     children: [
