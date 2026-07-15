@@ -452,6 +452,7 @@ function StickyMobileCTA({ c }) {
 /* ------------------------------------------------------------------ */
 
 export function CoursePage({ course }) {
+  const isClat = course.slug === "clat";
   return (
     <main className="bg-background">
       <Hero c={course} />
@@ -459,8 +460,8 @@ export function CoursePage({ course }) {
       <About c={course} />
       <WhyChoose c={course} />
       <Journey c={course} />
-      <Curriculum c={course} />
-      <Resources c={course} />
+      {!isClat && <Curriculum c={course} />}
+      {!isClat && <Resources c={course} />}
       <ExtraSections c={course} />
       <Results c={course} />
 
