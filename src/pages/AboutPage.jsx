@@ -26,6 +26,8 @@ import { CONTACT_INFO, COURSES, FACULTY, TOPPERS, TESTIMONIALS } from "@/lib/sit
 import DossierDrawer from "@/components/site/DossierDrawer";
 import galleryData from "@/data/gallery.json";
 import { Lightbox } from "@/components/site/Lightbox";
+import newsCricket1 from "@/assets/news-cricket-1.png";
+import newsCricket2 from "@/assets/news-cricket-2.png";
 
 const VIDEO_TESTIMONIALS = [
   {
@@ -206,6 +208,16 @@ const NEWS_EVENTS = [
     time: "2:00 PM - 5:00 PM",
     venue: "Dharampeth Centre, Nagpur",
     desc: "Analyze core legal concepts, constitution principles, and speed analysis of comprehension passages."
+  },
+  {
+    id: 5,
+    type: "News",
+    title: "Sigmas Clinch KATexpert Box Cricket League Trophy",
+    date: "Published July 12, 2026",
+    time: "9:00 AM - 5:00 PM",
+    venue: "Wings Turf, Bishop School, Civil Lines",
+    desc: "Four teams competed fiercely in the annual KATexpert Box Cricket League. In a thrilling final, the 'Sigmas' captained by Hiten Khatod defeated the 'Vibers' by 8 runs, scoring 63 runs in 8 overs and defending it by restricting the opponents to 55 runs. Individual accolades went to Aniket Matte & Shravani Raut (Best Bowlers) and Vishal Sakharwade & Sanjana Manekar (Best Batsmen). The event was graced by directors Dr. Arumita Pawa, Krish Vyas, along with Manoj Pawa and Amit Gandhare.",
+    images: [newsCricket1, newsCricket2]
   }
 ];
 
@@ -859,6 +871,25 @@ export default function AboutPage() {
                           <div className="flex-1 flex flex-col justify-center">
                             <h3 className="font-display text-sm sm:text-base font-bold text-brand-blue leading-normal">{event.title}</h3>
                             <p className="mt-2 text-xs text-slate-500 leading-relaxed">{event.desc}</p>
+                            {event.images && event.images.length > 0 && (
+                              <div className="mt-4 flex flex-wrap gap-3">
+                                {event.images.map((img, index) => (
+                                  <a 
+                                    key={index}
+                                    href={img}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="relative block h-20 w-28 overflow-hidden rounded-xl border border-slate-200 shadow-sm hover:scale-105 transition-transform"
+                                  >
+                                    <img 
+                                      src={img} 
+                                      alt={`Press coverage ${index + 1}`} 
+                                      className="h-full w-full object-cover" 
+                                    />
+                                  </a>
+                                ))}
+                              </div>
+                            )}
                             <div className="mt-3 flex items-center gap-1.5 text-xs text-brand-orange font-semibold">
                               <MapPin className="h-3.5 w-3.5" />
                               {event.venue}
