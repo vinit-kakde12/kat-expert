@@ -35,10 +35,16 @@ function Footer() {
             KATexpert is a leading institute for competitive exam preparation, offering expert coaching for CAT, CLAT, IPMAT, MBA CET, MCA CET, and CRT. With experienced faculty, personalized guidance, and a proven track record of success, we are committed to helping students achieve their academic and career goals.
           </p>
           <div className="mt-4 flex gap-1.5">
-            {[Facebook, Instagram, Youtube].map((Icon, i) => (
+            {[
+              { Icon: Facebook, url: "https://www.facebook.com/katexpertinstitute/" },
+              { Icon: Instagram, url: "https://www.instagram.com/katexpert_nagpur/" },
+              { Icon: Youtube, url: "https://www.youtube.com/channel/UCxc-E0Jkn7EUBlCg7I9WXrw" }
+            ].map(({ Icon, url }, i) => (
               <a
                 key={i}
-                href="#"
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Social link"
                 className="grid h-8 w-8 place-items-center rounded-md bg-white/5 text-white/80 transition-colors hover:bg-accent hover:text-accent-foreground"
               >

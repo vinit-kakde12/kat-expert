@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { galleryPool, testimonials } from "@/data/courses";
 
 /* ------------------------------------------------------------------ */
 /* Small local helpers                                                 */
@@ -368,72 +367,6 @@ function Results({ c }) {
   );
 }
 
-function TestimonialsSection() {
-  const [idx, setIdx] = useState(0);
-  const perView = 1;
-  const max = testimonials.length - perView;
-  const go = (dir) => setIdx((v) => Math.max(0, Math.min(max, v + dir)));
-
-  return (
-    <section className="section-y bg-cream-mesh">
-      <div className="container-x">
-        <SectionHeading eyebrow="Student Voices" title="What our students say" align="center" />
-        <div className="mt-10 relative max-w-3xl mx-auto">
-          <div className="overflow-hidden">
-            <div className="flex transition-transform duration-500 ease-out" style={{ transform: `translateX(-${idx * 100}%)` }}>
-              {testimonials.map((t) => (
-                <div key={t.name} className="w-full shrink-0 px-1">
-                  <figure className="card-premium p-8 sm:p-10 text-center">
-                    <div className="flex justify-center">
-                      <img src={t.image} alt={t.name} className="h-20 w-20 rounded-full object-cover ring-4 ring-[#ea580c]/10" loading="lazy" />
-                    </div>
-                    <div className="mt-4 flex justify-center gap-0.5 text-[#ea580c]">
-                      {"★★★★★".split("").map((s, i) => <span key={i}>{s}</span>)}
-                    </div>
-                    <blockquote className="mt-5 text-lg text-navy-soft leading-relaxed">"{t.quote}"</blockquote>
-                    <figcaption className="mt-5 font-display font-bold text-navy">{t.name}</figcaption>
-                  </figure>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="mt-6 flex items-center justify-center gap-3">
-            <button type="button" onClick={() => go(-1)} disabled={idx === 0} className="grid h-11 w-11 place-items-center rounded-full border border-border bg-white text-navy hover:border-[#ea580c] disabled:opacity-40" aria-label="Previous testimonial">
-              <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M12.79 4.79a.75.75 0 010 1.06L8.62 10l4.17 4.15a.75.75 0 11-1.06 1.06l-4.7-4.68a.75.75 0 010-1.06l4.7-4.68a.75.75 0 011.06 0z" clipRule="evenodd"/></svg>
-            </button>
-            <div className="flex gap-1.5">
-              {testimonials.map((_, i) => (
-                <button key={i} onClick={() => setIdx(i)} className={`h-2 rounded-full transition-all ${i === idx ? "w-6 bg-[#ea580c]" : "w-2 bg-navy/20 hover:bg-navy/40"}`} aria-label={`Go to slide ${i + 1}`} />
-              ))}
-            </div>
-            <button type="button" onClick={() => go(1)} disabled={idx >= max} className="grid h-11 w-11 place-items-center rounded-full border border-border bg-white text-navy hover:border-[#ea580c] disabled:opacity-40" aria-label="Next testimonial">
-              <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M7.21 4.79a.75.75 0 011.06 0l4.7 4.68a.75.75 0 010 1.06l-4.7 4.68a.75.75 0 11-1.06-1.06L11.38 10 7.21 5.85a.75.75 0 010-1.06z" clipRule="evenodd"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Gallery() {
-  const imgs = galleryPool;
-  return (
-    <section className="section-y">
-      <div className="container-x">
-        <SectionHeading eyebrow="Life at KATexpert" title="Moments from our classrooms and events" />
-        <div className="mt-10 grid gap-3 grid-cols-2 md:grid-cols-4">
-          {imgs.map((src, i) => (
-            <div key={src} className={`group relative overflow-hidden rounded-2xl bg-muted ${i % 5 === 0 ? "row-span-2 aspect-[3/4]" : "aspect-square"}`}>
-              <img src={src} alt="KATexpert classroom" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function FAQs({ c }) {
   const [open, setOpen] = useState(0);
   return (
@@ -530,8 +463,7 @@ export function CoursePage({ course }) {
       <Resources c={course} />
       <ExtraSections c={course} />
       <Results c={course} />
-      <TestimonialsSection />
-      <Gallery />
+
       <FAQs c={course} />
       <CTA c={course} />
       <StickyMobileCTA c={course} />

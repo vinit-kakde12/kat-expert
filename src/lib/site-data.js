@@ -59,7 +59,7 @@ const BRAND = {
   phoneAlt: "+91 99757 17636",
   whatsapp: "919552388015",
   address: "901 A Khare Town, Dharampeth, Behind Batukbhai Jewellers, Nagpur - 440010",
-  email: "info@katexperts.com"
+  email: "katexpert1806@gmail.com"
 };
 
 const NAV_LINKS = [
