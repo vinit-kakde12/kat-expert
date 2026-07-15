@@ -175,42 +175,6 @@ const VIDEO_TESTIMONIALS = [
 const NEWS_EVENTS = [
   {
     id: 1,
-    type: "Seminar",
-    title: "National B-School Selection Seminar 2026",
-    date: "July 25, 2026",
-    time: "4:00 PM - 7:00 PM",
-    venue: "Dharampeth Centre, Nagpur",
-    desc: "A comprehensive guide on shortlisting colleges, CAT cutoffs, and preparing for WAT/GD/PI rounds led by our lead director."
-  },
-  {
-    id: 2,
-    type: "Workshop",
-    title: "MBA CET Speed Building Mock Bootcamp",
-    date: "August 02, 2026",
-    time: "10:00 AM - 2:00 PM",
-    venue: "Online via Zoom & Centre offline",
-    desc: "Interactive strategy session mapping out 150 shortcut tricks for QA, DI, and Logical Reasoning questions."
-  },
-  {
-    id: 3,
-    type: "News",
-    title: "KAT Expert Nagpur Students Shine in MCA CET Results",
-    date: "Published June 14, 2026",
-    time: "Nagpur Times",
-    venue: "Press Release",
-    desc: "Over 20 students score above 99.5 percentile in the Maharashtra MCA CET exam, securing seats in VJTI, SPIT, and COEP."
-  },
-  {
-    id: 4,
-    type: "Workshop",
-    title: "CLAT Legal Reasoning Mastery workshop",
-    date: "August 18, 2026",
-    time: "2:00 PM - 5:00 PM",
-    venue: "Dharampeth Centre, Nagpur",
-    desc: "Analyze core legal concepts, constitution principles, and speed analysis of comprehension passages."
-  },
-  {
-    id: 5,
     type: "News",
     title: "Sigmas Clinch KATexpert Box Cricket League Trophy",
     date: "Published July 12, 2026",
@@ -733,22 +697,6 @@ export default function AboutPage() {
                 {/* Content Render */}
                 {gallerySubTab === "photos" && (
                   <div className="space-y-6">
-                    {/* Photo category buttons */}
-                    <div className="flex flex-wrap justify-center gap-2 mb-8">
-                      {["All", "Achievers", "Institute Buzz", "Victory Celebration", "GD / PI Preparation"].map((cat) => (
-                        <button
-                          key={cat}
-                          onClick={() => setGalleryCategory(cat)}
-                          className={`px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all cursor-pointer ${
-                            galleryCategory === cat
-                              ? "bg-brand-orange text-white border-transparent shadow-sm"
-                              : "bg-white hover:bg-slate-50 text-slate-600 border-slate-200"
-                          }`}
-                        >
-                          {cat}
-                        </button>
-                      ))}
-                    </div>
 
                     {/* Photo Grid */}
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
