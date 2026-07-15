@@ -735,22 +735,7 @@ export default function AboutPage() {
 
                 {gallerySubTab === "videos" && (
                   <div className="space-y-6">
-                    {/* Video filters */}
-                    <div className="flex flex-wrap justify-center gap-2 mb-8">
-                      {["All", "CAT", "IPMAT", "MBA CET", "MCA CET", "CRT"].map((cat) => (
-                        <button
-                          key={cat}
-                          onClick={() => setGalleryVideoFilter(cat)}
-                          className={`px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all cursor-pointer ${
-                            galleryVideoFilter === cat
-                              ? "bg-brand-orange text-white border-transparent shadow-sm"
-                              : "bg-white hover:bg-slate-50 text-slate-600 border-slate-200"
-                          }`}
-                        >
-                          {cat}
-                        </button>
-                      ))}
-                    </div>
+
 
                     {/* Videos Grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
