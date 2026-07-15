@@ -333,13 +333,13 @@ const TOPPERS = [
   { image: p21, name: "Meet Patel", exam: "CAT", score: "87.97%ile", college: "IIM Ahmedabad", year: 2025 },
   { image: p20, name: "Hiten Khatod", exam: "CAT", score: "89.90%ile", college: "IIM Bangalore", year: 2025 },
   { image: p31, name: "Naman Agrawal", exam: "DILR", score: "98.81%ile", college: "NLSIU Bangalore", year: 2025 },
-  { image: p38, name: "Anirudhha Bhuptani", exam: "BBA CET", score: "98.04%ile", college: "NLSIU Bangalore", year: 2025 },
-  { image: p39, name: "Arnav Mahatme", exam: "BBA CET", score: "95.62%ile", college: "NLSIU Bangalore", year: 2025 },
-  { image: p40, name: "Geetika Mundhada", exam: "BBA CET", score: "95.46%ile", college: "NLSIU Bangalore", year: 2025 },
-  { image: p41, name: "Gauravi Chitrav", exam: "BBA CET", score: "90.72%ile", college: "NLSIU Bangalore", year: 2025 },
-  { image: p42, name: "Priyanka Vithalani", exam: "BBA CET", score: "88.31%ile", college: "NLSIU Bangalore", year: 2025 },
-  { image: p43, name: "Arnav Raut", exam: "BBA CET", college: "Christ University Bangalore", year: 2025 },
-  { image: p44, name: "Deeksha Lanjewar", exam: "BBA CET", college: "NICMAR-Pune", year: 2025 },
+  { image: p38, name: "Anirudhha Bhuptani", exam: "BBA CET", score: "98.04%ile", college: "NLSIU Bangalore", year: 2026 },
+  { image: p39, name: "Arnav Mahatme", exam: "BBA CET", score: "95.62%ile", college: "NLSIU Bangalore", year: 2026 },
+  { image: p40, name: "Geetika Mundhada", exam: "BBA CET", score: "95.46%ile", college: "NLSIU Bangalore", year: 2026 },
+  { image: p41, name: "Gauravi Chitrav", exam: "BBA CET", score: "90.72%ile", college: "NLSIU Bangalore", year: 2026 },
+  { image: p42, name: "Priyanka Vithalani", exam: "BBA CET", score: "88.31%ile", college: "NLSIU Bangalore", year: 2026 },
+  { image: p43, name: "Arnav Raut", exam: "BBA CET", college: "Christ University Bangalore", year: 2026 },
+  { image: p44, name: "Deeksha Lanjewar", exam: "BBA CET", college: "NICMAR-Pune", year: 2026 },
   
   
 ];
