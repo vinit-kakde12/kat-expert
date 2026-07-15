@@ -30,18 +30,18 @@ import p21 from "@/assets/meet-patel.png";
 // import p22 from "@/assets/vinay-khanija.jpg";
 import p23 from "@/assets/amisha-shukla.png";
 import p24 from "@/assets/arya-dha.png";
-import p25 from "@/assets/atharva-pandh.png";
+import p25 from "@/assets/atharva-panbude.png";
 import p26 from "@/assets/ifra.png";
 import p27 from "@/assets/isha.png";
-import p28 from "@/assets/kunjal-sug.png";
-import p29 from "@/assets/kushi-yadav.png";
-import p30 from "@/assets/maheshwari.png";
+import p28 from "@/assets/kunjal-sugandh.png";
+import p29 from "@/assets/khushi-yadav.png";
+import p30 from "@/assets/maheshwari-urkude.jpg";
 import p31 from "@/assets/naman-ag2.png";
 import p32 from "@/assets/nandini-trivedi.jpg";
 import p33 from "@/assets/pawan-chandi.png";
 import p34 from "@/assets/rimjhim-s.png";
 import p35 from "@/assets/rudra.png";
-import p36 from "@/assets/saniya-son.png";
+import p36 from "@/assets/saniya-sondarkar.png";
 import p37 from "@/assets/vidhi.png";
 
 import p38 from "@/assets/aniruddha.jpeg";
@@ -369,7 +369,7 @@ const TESTIMONIALS = [
   },
    {
      image:p25,
-    name: "Atharva Pandhbudhe",
+    name: "Atharva Panbude",
     rating: 5,
     text: "I feel fortunate to have learned from Krish Sir. His passion, dedication, and genuine care made learning enjoyable and meaningful. Beyond academics, he taught valuable life lessons, inspired us, believed in our potential, and became the best teacher I have ever had."
   },
