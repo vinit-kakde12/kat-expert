@@ -104,23 +104,7 @@ function Footer() {
           <h4 className="font-display text-xs font-bold uppercase tracking-wider text-white">
             Contact Us
           </h4>
-          <p className="mt-3 text-xs text-white/60">Get exam tips, dates & free resources.</p>
-          <form onSubmit={subscribe} className="mt-2.5 flex gap-2">
-            <Input
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              type="email"
-              placeholder="Your email"
-              aria-label="Newsletter email"
-            
-              className="h-9 text-xs border-white/10 bg-white/5 text-white placeholder:text-white/30 focus-visible:ring-accent"
-            />
-            <Button type="submit" variant="accent" size="icon" className="h-9 w-9 shrink-0" aria-label="Subscribe">
-              <Send className="h-3.5 w-3.5 text-white" />
-            </Button>
-          </form>
-
-          <ul className="mt-4 space-y-2 text-xs text-white/60">
+          <ul className="mt-3.5 space-y-2 text-xs text-white/60">
             <li className="flex items-center gap-2">
               <Phone className="h-3.5 w-3.5 text-accent shrink-0" />
               <a href={`tel:${BRAND.phone}`} className="hover:text-accent transition-colors hover:text-white">
