@@ -77,8 +77,8 @@ const NAV_LINKS = [
         ]
       },
       { label: "GD/PI", href: "/resources/gd-pi" },
-      { label: "Blogs", href: "/blog" },
-      { label: "Articles", href: "/blog" },
+      { label: "Blogs", href: "https://katexperts.com/blogs/" },
+      { label: "Articles", href: "https://katexperts.com/blogs/" },
       { label: "Others", href: "/#contact" }
     ]
   },

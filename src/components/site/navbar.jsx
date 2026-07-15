@@ -9,15 +9,21 @@ import { courses } from "@/data/courses";
 
 function NavLink({ link, scrolled, onNavigate }) {
   const isHash = link.href?.startsWith("/#");
+  const isExternal = link.href?.startsWith("http");
   const className = `rounded-full px-3.5 py-2 text-sm font-medium transition-colors ${
     scrolled
       ? "text-foreground/80 hover:bg-secondary hover:text-foreground"
       : "text-white/85 hover:bg-white/10 hover:text-white"
   }`;
 
-  if (isHash) {
+  if (isHash || isExternal) {
     return (
-      <a href={link.href} className={className} onClick={onNavigate}>
+      <a 
+        href={link.href} 
+        className={className} 
+        onClick={onNavigate}
+        {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      >
         {link.label}
       </a>
     );
