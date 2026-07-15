@@ -2,42 +2,84 @@ import { motion } from "motion/react";
 import { BookOpen, Calendar, User, ArrowRight, Sparkles } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
 
+const FEATURED_POST = {
+  id: "featured-set-exam",
+  title: "SET Exam Coaching in Nagpur: Smart Preparation Strategies for Students",
+  excerpt: "The State Eligibility Test (SET) is one of the major examinations that candidates need to crack to qualify for lectureship posts. Discover smart prep strategies, syllabus weightage, and execution tips.",
+  date: "July 11, 2026",
+  author: "KATexpert Research",
+  category: "SET Entrance",
+  readTime: "6 min read",
+  url: "https://katexperts.com/set-exam-coaching-in-nagpur-smart-preparation-strategies-for-students/",
+  img: "https://katexperts.com/wp-content/uploads/2026/07/KAT-Experts-1-1.jpeg"
+};
+
 const BLOGS = [
   {
-    id: "cat-roadmap",
-    title: "How to Crack CAT 2026: A Step-by-Step Preparation Roadmap",
-    excerpt: "Dismantle formula dependency and reconstruct core mathematical logic. Discover the exact verbal reading patterns that lead to top business schools.",
-    date: "July 5, 2026",
-    author: "Prof. Aashish Kate",
-    category: "MBA Entrance",
-    readTime: "6 min read"
+    id: "blog-post-2",
+    title: "Complete Guide to CLAT and Law CET Coaching in Nagpur",
+    excerpt: "A profession in law is not only exciting but offers you the chance to make a real difference in society. Here is our comprehensive CLAT and Law CET guide.",
+    date: "July 4, 2026",
+    author: "KATexpert Research",
+    category: "LAW / CLAT",
+    readTime: "6 min read",
+    url: "https://katexperts.com/complete-guide-to-clat-and-law-cet-coaching-in-nagpur/",
+    img: "https://katexperts.com/wp-content/uploads/2026/07/KAT-Experts-.jpeg"
   },
   {
-    id: "ipmat-math",
-    title: "Understanding the IPMAT Higher Math Syllabus: Essential Chapters",
-    excerpt: "IPMAT requires a different mathematical approach than standard board exams. We break down the syllabus weightage and key topics you need to prioritize.",
-    date: "June 28, 2026",
-    author: "Prof. Nishant Deshmukh",
-    category: "Undergrad",
-    readTime: "5 min read"
+    id: "blog-post-3",
+    title: "Crack CLAT with Confidence: Top CLAT Coaching in Nagpur Revealed",
+    excerpt: "Preparing for the Common Law Admission Test (CLAT) is a significant move if you want to enter the legal profession. Discover top coaching tips.",
+    date: "June 27, 2026",
+    author: "KATexpert Research",
+    category: "LAW / CLAT",
+    readTime: "5 min read",
+    url: "https://katexperts.com/crack-clat-with-confidence-top-clat-coachhing-in-nagpur-revealed/",
+    img: "https://katexperts.com/wp-content/uploads/2026/06/Kat-Experts-1-2.jpeg"
   },
   {
-    id: "speed-math",
-    title: "Formula-Free Reasoning: Speed Math Workflows for Competitive Exams",
-    excerpt: "Learn how visual logic, pattern recognition, and geometric symmetry help you solve complex algebra problems in under 30 seconds without memorizing equations.",
-    date: "June 15, 2026",
-    author: "Prof. Krish Vyas",
-    category: "Quantitative",
-    readTime: "8 min read"
+    id: "blog-post-4",
+    title: "How to Choose the Best CLAT Classes in Nagpur for 2026 Exams",
+    excerpt: "Strategizing your preparation for the Common Law Admission Test (CLAT) with regular practice is essential to get top scores. Learn how to choose the right class.",
+    date: "June 20, 2026",
+    author: "KATexpert Research",
+    category: "LAW / CLAT",
+    readTime: "5 min read",
+    url: "https://katexperts.com/how-to-choose-the-best-clat-classes-in-nagpur-for-2026-exams/",
+    img: "https://katexperts.com/wp-content/uploads/2026/06/Kat-Experts-1-1.jpeg"
   },
   {
-    id: "clat-verbal",
-    title: "Retraining Your Brain: Cognitive Verbal Reading for CLAT & CAT",
-    excerpt: "Move away from standard word-by-word reading. Dr. Arumita Pawa explains semantic mapping and structural logic comprehension techniques to ace the verbal section.",
-    date: "May 30, 2026",
-    author: "Dr. Arumita Pawa",
-    category: "Verbal Ability",
-    readTime: "7 min read"
+    id: "blog-post-5",
+    title: "Best Coaching Institute in Nagpur for AIR Rank 1 Preparation",
+    excerpt: "Looking for the Best Coaching Institute in Nagpur for AIR Rank 1 preparation? Let's check how KATexpert prepares you to be a top ranker.",
+    date: "June 16, 2026",
+    author: "KATexpert Research",
+    category: "General Prep",
+    readTime: "4 min read",
+    url: "https://katexperts.com/best-coaching-institute-in-nagpur-for-air-rank-1-preparation/",
+    img: "https://katexperts.com/wp-content/uploads/2026/06/Kat-Experts-Air-I-.jpeg"
+  },
+  {
+    id: "blog-post-6",
+    title: "Best Coaching Institute for LAW in Nagpur: Expert Tips & Insights",
+    excerpt: "The legal profession remains to be one of the most prestigious and financially rewarding fields. Learn how to crack it with top tips and expert insights.",
+    date: "June 13, 2026",
+    author: "KATexpert Research",
+    category: "LAW / CLAT",
+    readTime: "5 min read",
+    url: "https://katexperts.com/best-coaching-institute-for-law-in-nagpur-expert-tips-insights/",
+    img: "https://katexperts.com/wp-content/uploads/2026/06/Kat-Experts-.jpeg"
+  },
+  {
+    id: "blog-post-7",
+    title: "Law Entrance Coaching in Nagpur: CAT, CLAT & SET Made Easy",
+    excerpt: "Success in competitive examinations is highly dependent on the right direction, well-planned studies, and mock practice.",
+    date: "June 6, 2026",
+    author: "KATexpert Research",
+    category: "Entrance Exams",
+    readTime: "5 min read",
+    url: "https://katexperts.com/law-entrance-coaching-in-nagpur-cat-clat-set-made-easy/",
+    img: "https://katexperts.com/wp-content/uploads/2026/06/Kat-Expert-.jpeg"
   }
 ];
 
@@ -49,45 +91,59 @@ export default function BlogPage() {
       <div className="container-x max-w-6xl mx-auto mt-12 px-4">
         {/* Featured blog post banner */}
         <div className="bg-[#1e293b] text-white rounded-3xl p-8 sm:p-12 shadow-xl relative overflow-hidden mb-16" id="blog-featured-banner">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-brand-orange/15 rounded-full blur-3xl -z-1" />
+          <div className="absolute top-0 right-0 w-80 h-80 bg-[#ea580c]/15 rounded-full blur-3xl -z-1" />
           
           <div className="flex flex-col lg:flex-row items-center gap-8 relative z-10">
             <div className="flex-1 space-y-4 text-left">
-              <div className="inline-flex items-center space-x-2 bg-brand-orange/20 border border-brand-orange/30 px-3 py-1 rounded-full text-xs font-bold text-brand-orange-light uppercase tracking-wider">
+              <div className="inline-flex items-center space-x-2 bg-[#ea580c]/20 border border-[#ea580c]/30 px-3 py-1 rounded-full text-xs font-bold text-brand-orange-light uppercase tracking-wider">
                 <Sparkles className="w-3.5 h-3.5 text-brand-orange-light animate-pulse" />
                 <span>Featured Post</span>
               </div>
               <h2 className="text-3xl sm:text-4xl font-display font-bold tracking-tight leading-tight">
-                The Architecture of Test-Taking Mentality
+                {FEATURED_POST.title}
               </h2>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                Why do high-performing students sometimes choke under pressure? We analyze the cognitive behavioral science of mock diagnostic testing and how to build mental stamina for exam day.
+                {FEATURED_POST.excerpt}
               </p>
               <div className="flex flex-wrap items-center gap-4 text-xs text-slate-400 font-semibold pt-2">
                 <span className="flex items-center gap-1">
                   <User className="w-3.5 h-3.5 text-brand-orange" />
-                  Dr. Arumita Pawa
+                  {FEATURED_POST.author}
                 </span>
                 <span>•</span>
                 <span className="flex items-center gap-1">
                   <Calendar className="w-3.5 h-3.5" />
-                  July 7, 2026
+                  {FEATURED_POST.date}
                 </span>
                 <span>•</span>
-                <span>10 min read</span>
+                <span>{FEATURED_POST.readTime}</span>
               </div>
               <div className="pt-4">
-                <a href="#contact" className="inline-flex items-center justify-center gap-2 bg-[#ea580c] hover:bg-[#f97316] text-white px-6 py-3 text-xs font-bold uppercase tracking-wider rounded-xl transition-all shadow-md shadow-brand-orange/15">
+                <a 
+                  href={FEATURED_POST.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-[#ea580c] hover:bg-[#f97316] text-white px-6 py-3 text-xs font-bold uppercase tracking-wider rounded-xl transition-all shadow-md shadow-brand-orange/15"
+                >
                   Read Article
                   <ArrowRight className="w-4 h-4 text-white" />
                 </a>
               </div>
             </div>
+            {FEATURED_POST.img && (
+              <div className="w-full lg:w-96 shrink-0 aspect-[4/3] rounded-2xl overflow-hidden border border-slate-700/50 shadow-lg">
+                <img 
+                  src={FEATURED_POST.img} 
+                  alt={FEATURED_POST.title} 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            )}
           </div>
         </div>
 
         {/* Blog Posts Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8" id="blogs-grid">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="blogs-grid">
           {BLOGS.map((blog, idx) => (
             <motion.article
               initial={{ opacity: 0, y: 20 }}
@@ -95,27 +151,43 @@ export default function BlogPage() {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
               key={blog.id}
-              className="bg-white border border-slate-100 p-6 sm:p-8 rounded-3xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+              className="bg-white border border-slate-100 p-5 rounded-3xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div className="space-y-4 text-left">
-                <span className="text-[10px] font-bold text-brand-orange uppercase bg-brand-orange/10 px-3 py-1 rounded-full inline-block">
-                  {blog.category}
-                </span>
-                <h3 className="text-xl font-bold text-brand-blue font-display hover:text-[#ea580c] transition-colors leading-snug">
-                  {blog.title}
-                </h3>
-                <p className="text-sm text-gray-500 leading-relaxed font-medium">
-                  {blog.excerpt}
-                </p>
+                {blog.img && (
+                  <div className="aspect-[16/10] w-full rounded-2xl overflow-hidden bg-slate-100 border border-slate-100">
+                    <img 
+                      src={blog.img} 
+                      alt={blog.title} 
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                )}
+                <div className="space-y-2">
+                  <span className="text-[10px] font-bold text-brand-orange uppercase bg-brand-orange/10 px-3 py-1 rounded-full inline-block">
+                    {blog.category}
+                  </span>
+                  <h3 className="text-base font-bold text-brand-blue font-display hover:text-[#ea580c] transition-colors leading-snug">
+                    <a href={blog.url} target="_blank" rel="noopener noreferrer">
+                      {blog.title}
+                    </a>
+                  </h3>
+                  <p className="text-xs text-gray-500 leading-relaxed font-medium line-clamp-3">
+                    {blog.excerpt}
+                  </p>
+                </div>
               </div>
 
               <div className="mt-6 pt-4 border-t border-slate-50 flex items-center justify-between text-xs text-gray-400 font-semibold">
-                <div className="flex items-center gap-3">
-                  <span>By {blog.author}</span>
-                  <span>•</span>
-                  <span>{blog.readTime}</span>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-[10px]">{blog.date}</span>
                 </div>
-                <a href="#contact" className="text-brand-blue hover:text-brand-orange flex items-center gap-1 font-bold">
+                <a 
+                  href={blog.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-brand-blue hover:text-brand-orange flex items-center gap-1 font-bold text-xs"
+                >
                   Read <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>
