@@ -14,21 +14,21 @@ import p5 from "@/assets/kasak-wadhwani.jpg";
 import p6 from "@/assets/naman-agrawal.jpg";
 import p7 from "@/assets/radhi-bha.jpg";
 import p8 from "@/assets/riddhi-bapte.jpg";
-import p9 from "@/assets/rupali-kale.jpg";
+import p9 from "@/assets/rupali-kale.png";
 import p10 from "@/assets/saniya-kamble.jpg";
-import p11 from "@/assets/shimant.jpg";
+import p11 from "@/assets/shrimant-bijwe.png";
 import p12 from "@/assets/surabhi-jaiswal.jpg";
 import p13 from "@/assets/vansh-katekhaye.jpg";
 import p14 from "@/assets/vedant-kohat.jpg";
 import p15 from "@/assets/vinay-khanija.jpg";
-import p16 from "@/assets/janhavi-pawa.png";
+import p16 from "@/assets/janhavi-pawaday.jpg";
 import p17 from "@/assets/kiran-kumar.png";
 import p18 from "@/assets/chitwan-ag.png";
 import p19 from "@/assets/nikita-ag.png";
 import p20 from "@/assets/hiten-kha.png";
 import p21 from "@/assets/meet-patel.png";
 // import p22 from "@/assets/vinay-khanija.jpg";
-import p23 from "@/assets/amisha-shuk.png";
+import p23 from "@/assets/amisha-shukla.png";
 import p24 from "@/assets/arya-dha.png";
 import p25 from "@/assets/atharva-pandh.png";
 import p26 from "@/assets/ifra.png";
@@ -37,7 +37,7 @@ import p28 from "@/assets/kunjal-sug.png";
 import p29 from "@/assets/kushi-yadav.png";
 import p30 from "@/assets/maheshwari.png";
 import p31 from "@/assets/naman-ag2.png";
-import p32 from "@/assets/nandini-tri.png";
+import p32 from "@/assets/nandini-trivedi.jpg";
 import p33 from "@/assets/pawan-chandi.png";
 import p34 from "@/assets/rimjhim-s.png";
 import p35 from "@/assets/rudra.png";
@@ -307,7 +307,7 @@ const TOPPERS = [
   { image: p7, name: "Radhika Bhattad", exam: "MBA CET", score: "95.84%ile", college: "NLSIU Bangalore", year: 2026 },
   { image: p12, name: "Surabhi Jaiswal", exam: "MBA CET", score: "95.81%ile", college: "IIM Indore", year: 2026 },
   { image: p4, name: "Kasak Ahuja", exam: "MBA CET", score: "93.13%ile", college: "SIMSREE Mumbai", year: 2026 },
-  { image: p11, name: "Shimant Bijwe", exam: "MBA CET", score: "91.85%ile", college: "JBIMS Mumbai", year: 2026},
+  { image: p11, name: "Shrimant Bijwe", exam: "MBA CET", score: "91.85%ile", college: "JBIMS Mumbai", year: 2026},
   { image: p10, name: "Saniya Kamble", exam: "MBA CET", score: "91.58%ile", college: "IIM Ahmedabad", year: 2026 },
   { image: p16, name: "Janhavi Pawaday", exam: "MBA CET", score: "88.36%ile", college: "IIM Bangalore", year: 2026 },
   { image: p14, name: "Vedant Kohat", exam: "MBA CET", score: "87.71%ile", college: "NLSIU Bangalore", year: 2026 },
@@ -343,7 +343,7 @@ const TESTIMONIALS = [
   },
   {
     image:p11,
-    name: "Shimant Bijwe",
+    name: "Shrimant Bijwe",
     rating: 5,
     text: "The interactive classes at KATexpert genuinely made learning enjoyable and kept me highly engaged throughout. The clear directions and strategic curriculum provided by the mentors were exactly what I needed to successfully achieve my goal."
   },
