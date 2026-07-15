@@ -75,12 +75,19 @@ export function Lightbox({ images, index, onClose, onIndexChange }) {
         className="flex items-center justify-between gap-3 px-4 py-3 text-white/90"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="min-w-0 text-sm">
+        <div className="min-w-0 text-sm flex items-center gap-3">
+          <button
+            onClick={onClose}
+            aria-label="Back to gallery"
+            className="flex items-center gap-1 bg-white/10 hover:bg-white/20 px-3 py-1 rounded-full text-white transition cursor-pointer text-xs font-semibold"
+          >
+            ← Back
+          </button>
           <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-[#ea580c]" />
             <span className="truncate text-xs font-semibold">{img.category}</span>
           </span>
-          <span className="ml-3 text-white/60 text-xs">
+          <span className="ml-1 text-white/60 text-xs">
             {index + 1} / {images.length}
           </span>
         </div>
