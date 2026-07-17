@@ -57,7 +57,7 @@ function Testimonials() {
                       <img
                         src={t.image}
                         alt={t.name}
-                        className="absolute inset-0 h-full w-full object-cover"
+                        className="absolute inset-0 h-full w-full object-cover object-top"
                         loading="lazy"
                       />
                     </div>
