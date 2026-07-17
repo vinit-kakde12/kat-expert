@@ -125,28 +125,88 @@ const CAT_RESOURCES = [
 
 const IPMAT_RESOURCES = [
   {
-    id: "ipmat-2022",
+    id: "ipmat-indore-2025",
+    title: "IPMAT Indore",
+    subtitle: "2025 Question Paper",
+    pdfUrl: "/resources/ipmat/ipmat-indore-2025.pdf"
+  },
+  {
+    id: "ipmat-indore-2024",
+    title: "IPMAT Indore",
+    subtitle: "2024 Question Paper",
+    pdfUrl: "/resources/ipmat/ipmat-indore-2024.pdf"
+  },
+  {
+    id: "ipmat-indore-2023",
+    title: "IPMAT Indore",
+    subtitle: "2023 Question Paper",
+    pdfUrl: "/resources/ipmat/ipmat-indore-2023.pdf"
+  },
+  {
+    id: "ipmat-indore-2022",
     title: "IPMAT Indore",
     subtitle: "2022 Question Paper",
     pdfUrl: "/resources/ipmat/ipmat-indore-2022.pdf"
   },
   {
-    id: "ipmat-2021",
+    id: "ipmat-indore-2021",
     title: "IPMAT Indore",
     subtitle: "2021 Question Paper",
     pdfUrl: "/resources/ipmat/ipmat-indore-2021.pdf"
   },
   {
-    id: "ipmat-2020",
+    id: "ipmat-indore-2020",
     title: "IPMAT Indore",
     subtitle: "2020 Question Paper",
     pdfUrl: "/resources/ipmat/ipmat-indore-2020.pdf"
   },
   {
-    id: "ipmat-2019",
+    id: "ipmat-indore-2019",
     title: "IPMAT Indore",
     subtitle: "2019 Question Paper",
     pdfUrl: "/resources/ipmat/ipmat-indore-2019.pdf"
+  },
+  {
+    id: "ipmat-rohtak-2020",
+    title: "IPMAT Rohtak",
+    subtitle: "2020 Question Paper",
+    pdfUrl: "/resources/ipmat/ipmat-rohtak-2020.pdf"
+  },
+  {
+    id: "ipmat-rohtak-2019",
+    title: "IPMAT Rohtak",
+    subtitle: "2019 Question Paper",
+    pdfUrl: "/resources/ipmat/ipmat-rohtak-2019.pdf"
+  },
+  {
+    id: "jipmat-2025",
+    title: "JIPMAT",
+    subtitle: "2025 Question Paper",
+    pdfUrl: "/resources/ipmat/jipmat-2025.pdf"
+  },
+  {
+    id: "jipmat-2024",
+    title: "JIPMAT",
+    subtitle: "2024 Question Paper",
+    pdfUrl: "/resources/ipmat/jipmat-2024.pdf"
+  },
+  {
+    id: "jipmat-2023",
+    title: "JIPMAT",
+    subtitle: "2023 Question Paper",
+    pdfUrl: "/resources/ipmat/jipmat-2023.pdf"
+  },
+  {
+    id: "jipmat-2022",
+    title: "JIPMAT",
+    subtitle: "2022 Question Paper",
+    pdfUrl: "/resources/ipmat/jipmat-2022.pdf"
+  },
+  {
+    id: "jipmat-2021",
+    title: "JIPMAT",
+    subtitle: "2021 Question Paper",
+    pdfUrl: "/resources/ipmat/jipmat-2021.pdf"
   }
 ];
 
