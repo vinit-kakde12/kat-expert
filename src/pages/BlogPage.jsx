@@ -2,88 +2,10 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import { BookOpen, Calendar, User, ArrowRight, Sparkles } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
-import { BLOGS_CONTENT } from "@/lib/blogs-data";
+import { BLOGS_METADATA, BLOGS_CONTENT } from "@/lib/blogs-data";
 
-const FEATURED_POST = {
-  id: "featured-set-exam",
-  title: "SET Exam Coaching in Nagpur: Smart Preparation Strategies for Students",
-  excerpt: "The State Eligibility Test (SET) is one of the major examinations that candidates need to crack to qualify for lectureship posts. Discover smart prep strategies, syllabus weightage, and execution tips.",
-  date: "July 11, 2026",
-  author: "KATexpert Research",
-  category: "SET Entrance",
-  readTime: "6 min read",
-  url: "https://katexperts.com/set-exam-coaching-in-nagpur-smart-preparation-strategies-for-students/",
-  img: "https://katexperts.com/wp-content/uploads/2026/07/KAT-Experts-1-1.jpeg"
-};
-
-const BLOGS = [
-  {
-    id: "blog-post-2",
-    title: "Complete Guide to CLAT and Law CET Coaching in Nagpur",
-    excerpt: "A profession in law is not only exciting but offers you the chance to make a real difference in society. Here is our comprehensive CLAT and Law CET guide.",
-    date: "July 4, 2026",
-    author: "KATexpert Research",
-    category: "LAW / CLAT",
-    readTime: "6 min read",
-    url: "https://katexperts.com/complete-guide-to-clat-and-law-cet-coaching-in-nagpur/",
-    img: "https://katexperts.com/wp-content/uploads/2026/07/KAT-Experts-.jpeg"
-  },
-  {
-    id: "blog-post-3",
-    title: "Crack CLAT with Confidence: Top CLAT Coaching in Nagpur Revealed",
-    excerpt: "Preparing for the Common Law Admission Test (CLAT) is a significant move if you want to enter the legal profession. Discover top coaching tips.",
-    date: "June 27, 2026",
-    author: "KATexpert Research",
-    category: "LAW / CLAT",
-    readTime: "5 min read",
-    url: "https://katexperts.com/crack-clat-with-confidence-top-clat-coachhing-in-nagpur-revealed/",
-    img: "https://katexperts.com/wp-content/uploads/2026/06/Kat-Experts-1-2.jpeg"
-  },
-  {
-    id: "blog-post-4",
-    title: "How to Choose the Best CLAT Classes in Nagpur for 2026 Exams",
-    excerpt: "Strategizing your preparation for the Common Law Admission Test (CLAT) with regular practice is essential to get top scores. Learn how to choose the right class.",
-    date: "June 20, 2026",
-    author: "KATexpert Research",
-    category: "LAW / CLAT",
-    readTime: "5 min read",
-    url: "https://katexperts.com/how-to-choose-the-best-clat-classes-in-nagpur-for-2026-exams/",
-    img: "https://katexperts.com/wp-content/uploads/2026/06/Kat-Experts-1-1.jpeg"
-  },
-  {
-    id: "blog-post-5",
-    title: "Best Coaching Institute in Nagpur for AIR Rank 1 Preparation",
-    excerpt: "Looking for the Best Coaching Institute in Nagpur for AIR Rank 1 preparation? Let's check how KATexpert prepares you to be a top ranker.",
-    date: "June 16, 2026",
-    author: "KATexpert Research",
-    category: "General Prep",
-    readTime: "4 min read",
-    url: "https://katexperts.com/best-coaching-institute-in-nagpur-for-air-rank-1-preparation/",
-    img: "https://katexperts.com/wp-content/uploads/2026/06/Kat-Experts-Air-I-.jpeg"
-  },
-  {
-    id: "blog-post-6",
-    title: "Best Coaching Institute for LAW in Nagpur: Expert Tips & Insights",
-    excerpt: "The legal profession remains to be one of the most prestigious and financially rewarding fields. Learn how to crack it with top tips and expert insights.",
-    date: "June 13, 2026",
-    author: "KATexpert Research",
-    category: "LAW / CLAT",
-    readTime: "5 min read",
-    url: "https://katexperts.com/best-coaching-institute-for-law-in-nagpur-expert-tips-insights/",
-    img: "https://katexperts.com/wp-content/uploads/2026/06/Kat-Experts-.jpeg"
-  },
-  {
-    id: "blog-post-7",
-    title: "Law Entrance Coaching in Nagpur: CAT, CLAT & SET Made Easy",
-    excerpt: "Success in competitive examinations is highly dependent on the right direction, well-planned studies, and mock practice.",
-    date: "June 6, 2026",
-    author: "KATexpert Research",
-    category: "Entrance Exams",
-    readTime: "5 min read",
-    url: "https://katexperts.com/law-entrance-coaching-in-nagpur-cat-clat-set-made-easy/",
-    img: "https://katexperts.com/wp-content/uploads/2026/06/Kat-Expert-.jpeg"
-  }
-];
+const FEATURED_POST = BLOGS_METADATA[0] || {};
+const BLOGS = BLOGS_METADATA.slice(1) || [];
 
 export default function BlogPage() {
   const [selectedBlog, setSelectedBlog] = useState(null);
