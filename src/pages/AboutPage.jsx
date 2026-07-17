@@ -224,6 +224,10 @@ export default function AboutPage() {
     if (tab && ['About', 'Faculty', 'Gallery', 'Reviews', 'Contact'].includes(tab)) {
       setActiveTab(tab);
     }
+    const subtab = params.get('subtab');
+    if (subtab && ['photos', 'videos', 'news'].includes(subtab)) {
+      setGallerySubTab(subtab);
+    }
     const mentor = params.get('mentor');
     if (mentor) {
       setSelectedMentor(mentor);
