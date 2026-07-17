@@ -86,40 +86,148 @@ const NAV_LINKS = [
 
 const CAT_RESOURCES = [
   {
-    id: "cat-qa-2024",
+    id: "cat-2025-slot-3",
+    title: "CAT 2025",
+    subtitle: "Slot 3 Question Paper",
+    pdfUrl: "https://katexperts.com/wp-content/uploads/2026/06/CAT-2025-Slot-3-Question-Paper-by-KatExpert.pdf.pdf"
+  },
+  {
+    id: "cat-2025-slot-2",
+    title: "CAT 2025",
+    subtitle: "Slot 2 Question Paper",
+    pdfUrl: "https://katexperts.com/wp-content/uploads/2026/06/CAT-2025-Slot-2-Question-Paper-by-KATexpert.pdf.pdf"
+  },
+  {
+    id: "cat-2025-slot-1",
+    title: "CAT 2025",
+    subtitle: "Slot 1 Question Paper",
+    pdfUrl: "https://katexperts.com/wp-content/uploads/2026/06/CAT-2025-Slot-1-Question-Paper-by-KATexpert.pdf.pdf"
+  },
+  {
+    id: "cat-2024-slot-3",
     title: "CAT 2024",
-    subtitle: "Quantitative Aptitude",
-    pdfUrl: "/resources/cat/cat-2024-qa.pdf"
+    subtitle: "Slot 3 Question Paper",
+    pdfUrl: "https://katexperts.com/wp-content/uploads/2026/06/CAT-2024-Slot-3-Question-Paper-by-KATexpert.pdf"
   },
   {
-    id: "cat-varc-2024",
+    id: "cat-2024-slot-2",
     title: "CAT 2024",
-    subtitle: "Verbal Ability & RC",
-    pdfUrl: "/resources/cat/cat-2024-varc.pdf"
+    subtitle: "Slot 2 Question Paper",
+    pdfUrl: "https://katexperts.com/wp-content/uploads/2026/06/CAT-2024-Slot-2-Question-Paper-by-KATexpert.pdf"
   },
   {
-    id: "cat-dilr-2024",
+    id: "cat-2024-slot-1",
     title: "CAT 2024",
-    subtitle: "Data Interpretation & LR",
-    pdfUrl: "/resources/cat/cat-2024-dilr.pdf"
+    subtitle: "Slot 1 Question Paper",
+    pdfUrl: "https://katexperts.com/wp-content/uploads/2026/06/CAT-2024-Slot-1-Question-Paper-by-KATexpert.pdf.pdf"
   },
   {
-    id: "cat-qa-2023",
+    id: "cat-2023-slot-3",
     title: "CAT 2023",
-    subtitle: "Quantitative Aptitude",
-    pdfUrl: "/resources/cat/cat-2023-qa.pdf"
+    subtitle: "Slot 3 Question Paper",
+    pdfUrl: "https://katexperts.com/wp-content/uploads/2026/06/CAT-2023-Slot-3-Question-Paper-by-Katexpert.pdf.pdf.pdf"
   },
   {
-    id: "cat-varc-2023",
+    id: "cat-2023-slot-2",
     title: "CAT 2023",
-    subtitle: "Verbal Ability & RC",
-    pdfUrl: "/resources/cat/cat-2023-varc.pdf"
+    subtitle: "Slot 2 Question Paper",
+    pdfUrl: "https://katexperts.com/wp-content/uploads/2026/06/CAT-2023-Slot-2-Question-Paper-by-Katexpert.pdf.pdf"
   },
   {
-    id: "cat-dilr-2023",
+    id: "cat-2023-slot-1",
     title: "CAT 2023",
-    subtitle: "Data Interpretation & LR",
-    pdfUrl: "/resources/cat/cat-2023-dilr.pdf"
+    subtitle: "Slot 1 Question Paper",
+    pdfUrl: "https://katexperts.com/wp-content/uploads/2026/06/CAT-2023-Slot-1-Question-Paper-by-Katexpert-pdf.pdf.pdf"
+  },
+  {
+    id: "cat-2022-slot-3",
+    title: "CAT 2022",
+    subtitle: "Slot 3 Question Paper",
+    pdfUrl: "https://katexperts.com/wp-content/uploads/2026/06/CAT-2022-Slot-3-Question-Paper-by-Katexpert.pdf.pdf"
+  },
+  {
+    id: "cat-2022-slot-2",
+    title: "CAT 2022",
+    subtitle: "Slot 2 Question Paper",
+    pdfUrl: "https://katexperts.com/wp-content/uploads/2026/06/CAT-2022-Slot-2-Question-Paper-by-Katexpert.pdf.pdf"
+  },
+  {
+    id: "cat-2022-slot-1",
+    title: "CAT 2022",
+    subtitle: "Slot 1 Question Paper",
+    pdfUrl: "https://katexperts.com/wp-content/uploads/2026/06/CAT-2022-Slot-1-Question-Paper-by-KATexpert.pdf"
+  },
+  {
+    id: "cat-2021-slot-3",
+    title: "CAT 2021",
+    subtitle: "Slot 3 Question Paper",
+    pdfUrl: "https://katexperts.com/wp-content/uploads/2026/06/CAT-2021-Slot-3-Question-Paper-by-Katexpert.pdf.pdf"
+  },
+  {
+    id: "cat-2021-slot-2",
+    title: "CAT 2021",
+    subtitle: "Slot 2 Question Paper",
+    pdfUrl: "https://katexperts.com/wp-content/uploads/2026/06/CAT-2021-Slot-2-Question-Paper-by-Katexpert.pdf.pdf"
+  },
+  {
+    id: "cat-2021-slot-1",
+    title: "CAT 2021",
+    subtitle: "Slot 1 Question Paper",
+    pdfUrl: "https://katexperts.com/wp-content/uploads/2026/06/CAT-2021-Slot-1-Question-Paper-by-KATexpert.pdf.pdf"
+  },
+  {
+    id: "cat-2020-slot-3",
+    title: "CAT 2020",
+    subtitle: "Slot 3 Question Paper",
+    pdfUrl: "https://katexperts.com/wp-content/uploads/2026/06/CAT-2020-Slot-3-Question-Paper.pdf"
+  },
+  {
+    id: "cat-2020-slot-2",
+    title: "CAT 2020",
+    subtitle: "Slot 2 Question Paper",
+    pdfUrl: "https://katexperts.com/wp-content/uploads/2026/06/CAT-2020-Slot-2-Question-Paper-by-KATexpert.pdf.pdf"
+  },
+  {
+    id: "cat-2020-slot-1",
+    title: "CAT 2020",
+    subtitle: "Slot 1 Question Paper",
+    pdfUrl: "https://katexperts.com/wp-content/uploads/2026/06/CAT-2020-Slot-1-Question-Paper-by-KATexpert.pdf.pdf"
+  },
+  {
+    id: "cat-2019-slot-2",
+    title: "CAT 2019",
+    subtitle: "Slot 2 Question Paper",
+    pdfUrl: "https://katexperts.com/wp-content/uploads/2026/06/CAT-2019-Slot-2-Question-Paper-by-KATexpert-pdf.pdf"
+  },
+  {
+    id: "cat-2019-slot-1",
+    title: "CAT 2019",
+    subtitle: "Slot 1 Question Paper",
+    pdfUrl: "https://katexperts.com/wp-content/uploads/2026/06/CAT-2019-Slot-1-Question-Paper-by-KATexpert.pdf"
+  },
+  {
+    id: "cat-2018-slot-2",
+    title: "CAT 2018",
+    subtitle: "Slot 2 Question Paper",
+    pdfUrl: "https://katexperts.com/wp-content/uploads/2026/06/CAT-2018-Slot-2-Question-Paper-by-KATexpert.pdf"
+  },
+  {
+    id: "cat-2018-slot-1",
+    title: "CAT 2018",
+    subtitle: "Slot 1 Question Paper",
+    pdfUrl: "https://katexperts.com/wp-content/uploads/2026/06/CAT-2018-Slot-1-Question-Paper-by-KATexpert.pdf"
+  },
+  {
+    id: "cat-2017-slot-2",
+    title: "CAT 2017",
+    subtitle: "Slot 2 Question Paper",
+    pdfUrl: "https://katexperts.com/wp-content/uploads/2026/06/CAT-2017-Slot-2-Question-Paper-by-KATexpert.pdf"
+  },
+  {
+    id: "cat-2017-slot-1",
+    title: "CAT 2017",
+    subtitle: "Slot 1 Question Paper",
+    pdfUrl: "https://katexperts.com/wp-content/uploads/2026/06/CAT-2017-Slot-1-Question-Paper-by-KATexpert.pdf"
   }
 ];
 
