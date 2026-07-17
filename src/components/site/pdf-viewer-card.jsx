@@ -43,23 +43,23 @@ function PdfViewerCard({ title, subtitle, pdfUrl }) {
             </button>
           </>
         ) : (
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#2d2d2d] p-6">
-            <div className="flex w-full max-w-[180px] flex-col items-center rounded-sm bg-white px-4 py-6 shadow-lg">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-navy">
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#2d2d2d] p-4">
+            <div className="flex w-full max-w-[130px] flex-col items-center rounded-sm bg-white px-2.5 py-4 shadow-lg">
+              <span className="text-[8px] font-bold uppercase tracking-wider text-navy">
                 KAT<span className="text-accent">expert</span>
               </span>
-              <p className="mt-3 text-center font-display text-sm font-extrabold leading-tight text-navy">
+              <p className="mt-2 text-center font-display text-[11px] font-extrabold leading-tight text-navy line-clamp-3">
                 {title}
               </p>
-              <p className="mt-1 text-center text-[11px] font-semibold uppercase tracking-wide text-accent">
+              <p className="mt-1 text-center text-[9px] font-semibold uppercase tracking-wide text-accent">
                 {subtitle}
               </p>
               <button
                 type="button"
                 onClick={toggleView}
-                className="mt-4 inline-flex items-center gap-1.5 bg-[#ea580c] hover:bg-[#d94e06] text-white text-[10px] font-bold uppercase tracking-wider px-3.5 py-2 rounded-lg transition-colors cursor-pointer"
+                className="mt-3.5 inline-flex items-center gap-1 bg-[#ea580c] hover:bg-[#d94e06] text-white text-[8px] font-bold uppercase tracking-wider px-2 py-1.5 rounded-md transition-colors cursor-pointer"
               >
-                <FileText className="h-3.5 w-3.5" /> Preview PDF
+                <FileText className="h-3 w-3" /> Preview PDF
               </button>
             </div>
           </div>
