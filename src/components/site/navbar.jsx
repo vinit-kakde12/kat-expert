@@ -101,7 +101,7 @@ function DesktopDropdown({ item, scrolled }) {
                       >
                         {child.children.map((sub) => (
                           <Link
-                            key={sub.href}
+                            key={sub.label}
                             to={sub.href}
                             className="block px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-white"
                           >
@@ -115,7 +115,7 @@ function DesktopDropdown({ item, scrolled }) {
               ) : (
                 child.href.startsWith("http") || child.href.startsWith("/#") ? (
                   <a
-                    key={child.href}
+                    key={child.label}
                     href={child.href}
                     className="block border-t border-border/60 px-4 py-2.5 text-sm font-medium text-foreground transition-colors first:border-t-0 hover:bg-accent hover:text-white"
                   >
@@ -123,7 +123,7 @@ function DesktopDropdown({ item, scrolled }) {
                   </a>
                 ) : (
                   <Link
-                    key={child.href}
+                    key={child.label}
                     to={child.href}
                     onClick={() => setOpen(false)}
                     className="block border-t border-border/60 px-4 py-2.5 text-sm font-medium text-foreground transition-colors first:border-t-0 hover:bg-accent hover:text-white"
@@ -270,7 +270,7 @@ function MobileNavItem({ item, onNavigate }) {
               className="overflow-hidden pl-3"
             >
               {item.children.map((c) => (
-                <li key={c.href}>
+                <li key={c.label}>
                   <Link
                     to={c.href}
                     onClick={onNavigate}
@@ -345,7 +345,7 @@ function MobileNavItem({ item, onNavigate }) {
                   {pyqsExpanded && (
                     <ul className="pl-3">
                       {child.children.map((sub) => (
-                        <li key={sub.href}>
+                        <li key={sub.label}>
                           <Link
                             to={sub.href}
                             onClick={onNavigate}
@@ -359,7 +359,7 @@ function MobileNavItem({ item, onNavigate }) {
                   )}
                 </li>
               ) : (
-                <li key={child.href}>
+                <li key={child.label}>
                   {child.href.startsWith("http") || child.href.startsWith("/#") ? (
                     <a
                       href={child.href}
