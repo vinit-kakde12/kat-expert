@@ -78,8 +78,7 @@ const NAV_LINKS = [
       },
       { label: "GD/PI", href: "/resources/gd-pi" },
       { label: "Blogs", href: "/blog" },
-      { label: "Articles", href: "/blog" },
-      { label: "Others", href: "/#contact" }
+      { label: "Articles", href: "/blog" }
     ]
   },
   { label: "Contact", href: "/#contact" }
