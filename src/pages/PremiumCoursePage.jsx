@@ -21,5 +21,5 @@ export default function PremiumCoursePage() {
     );
   }
 
-  return <CoursePage course={course} />;
+  return <CoursePage course={course} key={slug} />;
 }
